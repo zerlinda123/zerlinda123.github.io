@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Zerlinda‘s blog</title>
-    <link>http://earchou123.github.io/post/</link>
+    <link>https://earchou123.github.io/post/</link>
     <description>Recent content in Posts on Zerlinda‘s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Mar 2023 14:22:40 +0800</lastBuildDate><atom:link href="http://earchou123.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Mar 2023 14:22:40 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Command</title>
-      <link>http://earchou123.github.io/post/docker-command/</link>
+      <link>https://earchou123.github.io/post/docker-command/</link>
       <pubDate>Mon, 06 Mar 2023 14:22:40 +0800</pubDate>
       
-      <guid>http://earchou123.github.io/post/docker-command/</guid>
+      <guid>https://earchou123.github.io/post/docker-command/</guid>
       <description>docker 服务相关命令 启动 systemctl start docker 状态 systemctl status docker 停止 systemctl stop docker 重启 systemctl restart docker 开机启动 systemctl enable docker docker镜像相关命令 查看镜像 docker images docker images -q #查看所有镜像id 搜索镜像 # docker search 镜像名称 docker search redis 拉取镜像 # docker pull 镜像名称 docker pull redis:5.0 删除镜像 # docker rmi 镜像:版本 docker rmi redis:5.0 docker rmi `docker images -q` #删除所有 查看镜像层数 # docker history 镜像名:版本号 dokcer hoistory app:1.0 docker system df -v #可以用来扫描镜像/容器大小 docker容器相关命令 查看容器 docker ps #查看当前运行中的容器 docker ps -a #查看所有容器 docker ps -l #显示最近创建的容器 docker ps -n #显示最近n个创建的容器 docker ps -q #静默模式，只显示容器编号 进入容器 docker exec 参数 例:</description>
     </item>
     
