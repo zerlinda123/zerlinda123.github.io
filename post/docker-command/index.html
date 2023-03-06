@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.111.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Docker Command &middot; Zerlinda‘s blog</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="http://earchou123.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://earchou123.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://earchou123.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://earchou123.github.iocss/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-0e ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://earchou123.github.io"><h1>Zerlinda‘s blog</h1></a>
+      <p class="lead">
+       This is Zerlinda’s blog 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="http://earchou123.github.io">Home</a> </li>
+        <li><a href="/post/"> Post </a></li><li><a href="/welcome/"> welcome! </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Docker Command</h1>
+  <time datetime=2023-03-06T14:22:40&#43;0800 class="post-date">Mon, Mar 6, 2023</time>
+  <h2 id="docker-服务相关命令">docker 服务相关命令</h2>
+<h3 id="启动">启动</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl start docker
+</span></span></code></pre></div><h3 id="状态">状态</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl status docker
+</span></span></code></pre></div><h3 id="停止">停止</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl stop docker 
+</span></span></code></pre></div><h3 id="重启">重启</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl restart docker 
+</span></span></code></pre></div><h3 id="开机启动">开机启动</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl enable docker
+</span></span></code></pre></div><h2 id="docker镜像相关命令">docker镜像相关命令</h2>
+<h3 id="查看镜像">查看镜像</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker images   
+</span></span><span style="display:flex;"><span>docker images -q <span style="color:#75715e">#查看所有镜像id</span>
+</span></span></code></pre></div><h3 id="搜索镜像">搜索镜像</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># docker search 镜像名称 </span>
+</span></span><span style="display:flex;"><span>docker search redis
+</span></span></code></pre></div><h3 id="拉取镜像">拉取镜像</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># docker pull 镜像名称</span>
+</span></span><span style="display:flex;"><span>docker pull redis:5.0
+</span></span></code></pre></div><h3 id="删除镜像">删除镜像</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># docker rmi 镜像:版本</span>
+</span></span><span style="display:flex;"><span>docker rmi redis:5.0
+</span></span><span style="display:flex;"><span>docker rmi <span style="color:#e6db74">`</span>docker images -q<span style="color:#e6db74">`</span> <span style="color:#75715e">#删除所有</span>
+</span></span></code></pre></div><h3 id="查看镜像层数">查看镜像层数</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># docker history 镜像名:版本号</span>
+</span></span><span style="display:flex;"><span>dokcer hoistory app:1.0
+</span></span><span style="display:flex;"><span>docker system df -v <span style="color:#75715e">#可以用来扫描镜像/容器大小</span>
+</span></span></code></pre></div><h2 id="docker容器相关命令">docker容器相关命令</h2>
+<h3 id="查看容器">查看容器</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker ps <span style="color:#75715e">#查看当前运行中的容器</span>
+</span></span><span style="display:flex;"><span>docker ps -a <span style="color:#75715e">#查看所有容器</span>
+</span></span><span style="display:flex;"><span>docker ps -l <span style="color:#75715e">#显示最近创建的容器</span>
+</span></span><span style="display:flex;"><span>docker ps -n <span style="color:#75715e">#显示最近n个创建的容器</span>
+</span></span><span style="display:flex;"><span>docker ps -q <span style="color:#75715e">#静默模式，只显示容器编号</span>
+</span></span></code></pre></div><h3 id="进入容器">进入容器</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> docker exec 参数
+</span></span></code></pre></div><p>例:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@VM-20-3-centos ~<span style="color:#f92672">]</span><span style="color:#75715e"># docker run -id --name=test3 centos:7 /bin/bash</span>
+</span></span><span style="display:flex;"><span>1d58a102dc07c099a2080b051376e500f198ff47102adac1005d5cad52118d58
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@VM-20-3-centos ~<span style="color:#f92672">]</span><span style="color:#75715e"># docker exec -it test3 /bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@1d58a102dc07 /<span style="color:#f92672">]</span><span style="color:#75715e"># ls</span>
+</span></span><span style="display:flex;"><span>anaconda-post.log  bin  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@1d58a102dc07 /<span style="color:#f92672">]</span><span style="color:#75715e"># exit</span>
+</span></span><span style="display:flex;"><span>exit
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@VM-20-3-centos ~<span style="color:#f92672">]</span><span style="color:#75715e"># docker ps</span>
+</span></span><span style="display:flex;"><span>CONTAINER ID   IMAGE      COMMAND       CREATED          STATUS          PORTS     NAMES
+</span></span><span style="display:flex;"><span>1d58a102dc07   centos:7   <span style="color:#e6db74">&#34;/bin/bash&#34;</span>   <span style="color:#ae81ff">50</span> seconds ago   Up <span style="color:#ae81ff">50</span> seconds             test3
+</span></span></code></pre></div><h3 id="创建并启动容器">创建并启动容器</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run 参数
+</span></span></code></pre></div><p>例:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run -it --name<span style="color:#f92672">=</span>test centos:7 /bin/bash
+</span></span></code></pre></div><ul>
+<li><code>-i</code> 保持运行。与-t同时使用，创建容器后进入容器中，推出容器后，容器自动关闭。</li>
+<li><code>-t</code> 为容器分配一个伪输入终端。</li>
+<li><code>--name</code> 为创建的容器命名</li>
+<li><code>-d</code> 以守护（后台）模式运行容器。创建后容器再后台运行，需要使用docker exec进入容器。退出后容器不会关闭。</li>
+<li><code>-it</code> 创建的一般称为交互式容器，-id创建的成为守护式容器。</li>
+</ul>
+<h3 id="启动容器">启动容器</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker start 容器名
+</span></span></code></pre></div><h3 id="停止容器">停止容器</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker stop 容器id或容器名
+</span></span><span style="display:flex;"><span>docker kill 容器id或容器名  <span style="color:#75715e">#强制停止容器</span>
+</span></span></code></pre></div><h3 id="删除容器">删除容器</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># docker rm 容器名</span>
+</span></span><span style="display:flex;"><span>docker rm <span style="color:#e6db74">`</span>docker ps -aq<span style="color:#e6db74">`</span> <span style="color:#75715e">#删除所有</span>
+</span></span><span style="display:flex;"><span>docker rm  <span style="color:#e6db74">`</span>docker ps -aqf status<span style="color:#f92672">=</span>exited<span style="color:#e6db74">`</span> <span style="color:#75715e">#删除所有状态为exited的容器</span>
+</span></span></code></pre></div><h3 id="查看容器信息">查看容器信息</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># docker inspect 容器名</span>
+</span></span><span style="display:flex;"><span>docker inspect redis
+</span></span></code></pre></div><h3 id="复制容器文件到宿主机">复制容器文件到宿主机</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker cp 容器id:容器内路径 宿主机路径
+</span></span></code></pre></div><h3 id="导入和导出容器">导入和导出容器</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker export 容器id &gt; 导出文件名.tar
+</span></span><span style="display:flex;"><span>cat 文件名.tar | docker import - 镜像用户/镜像名:镜像版本号
+</span></span></code></pre></div><p>import 从tar包中的内容创建一个新的文件系统再导入为镜像
+<img src="/img/image.png" alt="export.png"></p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
