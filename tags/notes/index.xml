@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>notes on Zerlinda‘s blog</title>
+    <link>https://earchou123.github.io/tags/notes/</link>
+    <description>Recent content in notes on Zerlinda‘s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Mar 2023 14:23:00 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux Command</title>
+      <link>https://earchou123.github.io/post/linux-command/</link>
+      <pubDate>Mon, 06 Mar 2023 14:23:00 +0800</pubDate>
+      
+      <guid>https://earchou123.github.io/post/linux-command/</guid>
+      <description>bash快捷键 ctrl + a 移动到行首 ctrl + e 移动到行尾 ctrl + u 删除光标之前的字符 ctrl + k 删除光标这之后的字符 ctrl + l 清空屏幕终端内容，等同clear 三剑客（grep、awk、sed）及正则 grep 常用
+获取匹配行 grep pattern file 获取匹配内容 grep -o pattern file 获取匹配上下文 grep -A -B -C pattern file 过滤空行和注释行 grep &amp;#39;^$&amp;#39; passw.log -v | grep &amp;#39;^#&amp;#39; -v 文件检索
+递归搜索 grep pattern -r dir/ 展示匹配文件名 grep -H 111 /tmp/1 只展示文件名 grep -l 111 /tmp/1 范围约束
+搬砖中..
+进程过滤
+搬砖中..
+正则 搬砖中.</description>
+    </item>
+    
+  </channel>
+</rss>

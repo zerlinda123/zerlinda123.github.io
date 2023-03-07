@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.111.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Linux Command &middot; Zerlinda‘s blog</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-0e ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://earchou123.github.io/"><h1>Zerlinda‘s blog</h1></a>
+      <p class="lead">
+       This is Zerlinda’s blog 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://earchou123.github.io/">Home</a> </li>
+        <li><a href="/post/"> Posts </a></li><li><a href="/about/"> About </a></li><li><a href="/welcome/"> welcome </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Linux Command</h1>
+  <time datetime=2023-03-06T14:23:00&#43;0800 class="post-date">Mon, Mar 6, 2023</time>
+  <h2 id="bash快捷键">bash快捷键</h2>
+<ul>
+<li>ctrl + a 移动到行首</li>
+<li>ctrl + e 移动到行尾</li>
+<li>ctrl + u 删除光标之前的字符</li>
+<li>ctrl + k 删除光标这之后的字符</li>
+<li>ctrl + l 清空屏幕终端内容，等同clear</li>
+</ul>
+<h2 id="三剑客grepawksed及正则">三剑客（grep、awk、sed）及正则</h2>
+<h3 id="grep">grep</h3>
+<ul>
+<li>
+<p>常用</p>
+<ul>
+<li>获取匹配行</li>
+</ul>
+<pre tabindex="0"><code>grep pattern file
+</code></pre><ul>
+<li>获取匹配内容</li>
+</ul>
+<pre tabindex="0"><code>grep -o pattern file
+</code></pre><ul>
+<li>获取匹配上下文</li>
+</ul>
+<pre tabindex="0"><code>grep -A -B -C pattern file
+</code></pre><ul>
+<li>过滤空行和注释行</li>
+</ul>
+<pre tabindex="0"><code>grep &#39;^$&#39; passw.log -v | grep &#39;^#&#39; -v
+</code></pre></li>
+<li>
+<p>文件检索</p>
+<ul>
+<li>递归搜索</li>
+</ul>
+<pre tabindex="0"><code>grep pattern -r dir/ 
+</code></pre><ul>
+<li>展示匹配文件名</li>
+</ul>
+<pre tabindex="0"><code>grep -H 111 /tmp/1
+</code></pre><ul>
+<li>只展示文件名</li>
+</ul>
+<pre tabindex="0"><code>grep  -l 111 /tmp/1
+</code></pre></li>
+<li>
+<p>范围约束<br>
+搬砖中..</p>
+</li>
+<li>
+<p>进程过滤<br>
+搬砖中..</p>
+</li>
+</ul>
+<h3 id="正则">正则</h3>
+<p>搬砖中..</p>
+<h3 id="awk">awk</h3>
+<p>搬砖中..</p>
+<h3 id="sed">sed</h3>
+<p>搬砖中..</p>
+<h2 id="文件处理">文件处理</h2>
+<h3 id="查看文件">查看文件</h3>
+<pre tabindex="0"><code>ls
+</code></pre><h3 id="切换工作目录">切换工作目录</h3>
+<pre tabindex="0"><code>cd
+</code></pre><h3 id="显示当前工作路径">显示当前工作路径</h3>
+<pre tabindex="0"><code>pwd
+</code></pre><h3 id="删除文件">删除文件</h3>
+<pre tabindex="0"><code>rm
+</code></pre><h3 id="复制文件">复制文件</h3>
+<pre tabindex="0"><code>cp
+</code></pre><h3 id="移动文件">移动文件</h3>
+<pre tabindex="0"><code>mv
+</code></pre><h3 id="建立链接">建立链接</h3>
+<pre tabindex="0"><code>ln
+</code></pre><h3 id="查找文件">查找文件</h3>
+<pre tabindex="0"><code>find
+</code></pre><h3 id="查看文件内容">查看文件内容</h3>
+<pre tabindex="0"><code>cat 
+less 
+more 
+head 
+tail
+</code></pre><h3 id="打包文件">打包文件</h3>
+<pre tabindex="0"><code>tar -zcvf g.tar.gz a.txt b.txt #压缩
+tar -xf g.tar.gz  #解压
+tar -xf g.tar.gz -C ./test/ #指定解压路径 -C
+</code></pre><h3 id="vim编辑器">vim编辑器</h3>
+<pre tabindex="0"><code>r 读权限---4
+w写权限---2
+x操作权限--1 
+-无权限--0
+修改文件权限 chmod 777 文件 #777最高权限
+</code></pre><h2 id="进程线程">进程/线程</h2>
+<h3 id="进程列表快照-ps">进程列表快照 ps</h3>
+<pre tabindex="0"><code>ps -ef  #unix 风格参数 
+ps aux  #bsd风格参数 
+ps --pid pidlist #gnu风格参数
+ps -o pid,ppid,psr,tcount,tid,cmd -M #自定义输出指标
+</code></pre><h3 id="交互式进程观测-top">交互式进程观测 top</h3>
+<h3 id="结束进程-kill-killall">结束进程 kill killall</h3>
+<h3 id="列举后台的进程-jobs">列举后台的进程 jobs</h3>
+<h3 id="进程切换到前台-fg">进程切换到前台 fg</h3>
+<h3 id="进程切换到后台-bg">进程切换到后台 bg</h3>
+<h3 id="挂起进程-ctrl-z">挂起进程 ctrl z</h3>
+<h2 id="网络相关">网络相关</h2>
+<h3 id="查看网卡-ifconfig">查看网卡 ifconfig</h3>
+<p>ping 测试远程主机连通性<br>
+ping -c ping的次数<br>
+ping -I 每次ping的时间间隔</p>
+<pre tabindex="0"><code>ping -c 3 -i 1 www.baidu.com
+</code></pre><h3 id="打印网络状态信息netstat">打印网络状态信息netstat</h3>
+<pre tabindex="0"><code># netstat -t 打印出所有tcp
+# netstat -n 以数字形式显示地址和端口号
+# netstat -p 显示进程的pid和名字
+netstat -tnp
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 10.0.20.3:25413         219.134.115.35:44828    ESTABLISHED 23928/sshd: root@pt 
+tcp        0      0 10.0.20.3:25413         219.134.115.35:43923    ESTABLISHED 9584/sshd: root@pts 
+tcp        0      0 10.0.20.3:25413         219.134.115.35:42779    ESTABLISHED 10745/sshd: root@pt 
+tcp        0      0 10.0.20.3:44114         169.254.0.138:8086      ESTABLISHED 25866/tat_agent     
+tcp        0      0 10.0.20.3:44846         169.254.0.35:9988       ESTABLISHED 1204/secu-tcs-agent 
+</code></pre><h2 id="常用统计命令sortuniqwc">常用统计命令（sort、uniq、wc）</h2>
+<h3 id="sort">sort</h3>
+<p>搬砖中..</p>
+<h3 id="uniq">uniq</h3>
+<p>搬砖中..</p>
+<h3 id="wc">wc</h3>
+<p>搬砖中..</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
