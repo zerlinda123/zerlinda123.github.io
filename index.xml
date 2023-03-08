@@ -27,21 +27,61 @@
     </item>
     
     <item>
+      <title>go基础（三）数据类型</title>
+      <link>https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%B8%89%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Tue, 07 Mar 2023 14:31:58 +0800</pubDate>
+      
+      <guid>https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%B8%89%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      <description>&lt;p&gt;&lt;em&gt;详情看官网&lt;a href=&#34;https://go.dev/doc/effective_go#data&#34;&gt;https://go.dev/doc/effective_go#data&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;数据类型总览&#34;&gt;数据类型总览&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;序号&lt;/th&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Bool&lt;/td&gt;
+&lt;td&gt;true or false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;!-- raw HTML omitted --&gt;int&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;float32&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;float64&lt;!-- raw HTML omitted --&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;!-- raw HTML omitted --&gt;Go 的字符串是由单个字节连接起来的。&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;go语言字符串使用Utf-8编码标识Unicode文本&lt;!-- raw HTML omitted --&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;派生类&lt;/td&gt;
+&lt;td&gt;&lt;!-- raw HTML omitted --&gt;指针（Pointer）&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;数组&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;结构体（struct）&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;通道（Channel）&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;函数&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;切片&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;接口（interface）&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;Map&lt;!-- raw HTML omitted --&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+    
+    <item>
       <title>go基础（二）变量&amp;常量</title>
       <link>https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%BA%8C%E5%8F%98%E9%87%8F%E5%B8%B8%E9%87%8F/</link>
       <pubDate>Tue, 07 Mar 2023 13:34:58 +0800</pubDate>
       
       <guid>https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%BA%8C%E5%8F%98%E9%87%8F%E5%B8%B8%E9%87%8F/</guid>
-      <description>&lt;h1 id=&#34;变量&#34;&gt;变量&lt;/h1&gt;
-&lt;h2 id=&#34;变量声明&#34;&gt;变量声明&lt;/h2&gt;
-&lt;p&gt;语法&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var 变量名字 类型 = 表达式
-&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;
+      <description>&lt;h2 id=&#34;变量&#34;&gt;变量&lt;/h2&gt;
+&lt;h3 id=&#34;变量声明&#34;&gt;变量声明&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;var 变量名字 类型 = 表达式&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
-      <title>Go学习网站</title>
+      <title>Go学习网站收集</title>
       <link>https://earchou123.github.io/websites/go%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/</link>
       <pubDate>Tue, 07 Mar 2023 13:33:20 +0800</pubDate>
       
