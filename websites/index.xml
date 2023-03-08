@@ -13,13 +13,14 @@
       <pubDate>Tue, 07 Mar 2023 13:33:20 +0800</pubDate>
       
       <guid>https://earchou123.github.io/websites/go%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/</guid>
-      <description> 官网
-https://golang.org/ 标准库
-https://golang.org/pkg/ go语言中文网 https://studygolang.com/ go语言中文网标准库
-https://studygolang.com/pkgdoc 地鼠文档
-https://www.topgoer.cn/ learnku
-https://learnku.com/ 无闻
-《Go 编程基础》 Go 语言学习资料与社区索引 </description>
+      <description>&lt;ul&gt;
+&lt;li&gt;官网&lt;br&gt;
+&lt;a href=&#34;https://golang.org&#34;&gt;https://golang.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;标准库&lt;br&gt;
+&lt;a href=&#34;https://golang.org/pkg/&#34;&gt;https://golang.org/pkg/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;go语言中文网 &lt;br&gt;
+&lt;a href=&#34;https://studygolang.com/&#34;&gt;https://studygolang.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
   </channel>

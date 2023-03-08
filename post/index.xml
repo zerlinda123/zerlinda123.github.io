@@ -13,16 +13,12 @@
       <pubDate>Tue, 07 Mar 2023 13:34:58 +0800</pubDate>
       
       <guid>https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%BA%8C%E5%8F%98%E9%87%8F%E5%B8%B8%E9%87%8F/</guid>
-      <description>变量 变量声明 语法
-var 变量名字 类型 = 表达式 var name string 批量声明
-var( name string age int b bool ) 变量初始化 var name string = &amp;#34;hahah&amp;#34; 类型推断
-var name = &amp;#34;haha&amp;#34; var age = 18 批量声明
-var name,age,b = &amp;#34;haha&amp;#34;,123,true 短变量声明
-只能放在函数内部，不能放在函数外部
-age := 123 常量 常量定义 const Name [type] = value
-const PI float32 = 3.14 常量一旦被定义，无法被修改
-iota 可被修改的常量编辑器
-const ( a1 = iota //0 a2 = iota //1 a3 = iota //2 ) 跳过某个值</description>
+      <description>&lt;h1 id=&#34;变量&#34;&gt;变量&lt;/h1&gt;
+&lt;h2 id=&#34;变量声明&#34;&gt;变量声明&lt;/h2&gt;
+&lt;p&gt;语法&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var 变量名字 类型 = 表达式
+&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -31,8 +27,15 @@ const ( a1 = iota //0 a2 = iota //1 a3 = iota //2 ) 跳过某个值</description
       <pubDate>Tue, 07 Mar 2023 13:31:58 +0800</pubDate>
       
       <guid>https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%B8%80%E7%89%B9%E7%82%B9%E5%91%BD%E5%90%8D/</guid>
-      <description>go语言诞生 核心开发团队：Ken Thompson、Rob Pike、Robert Griesemer 诞生原因： 计算机硬件频繁更新，性能提高很快。目前主流语言明显落后于硬件，不能合理使用多核CPU的优势提升软件性能 软件系统复杂程度越来越高，维护成本越来越高，目前缺少一个足够简洁高效的编程语言。 企业运行维护很多c/c++的项目，虽然速度快，编译速度却很慢，同时存在内存泄露等一系列问题。 go语言的特点 引入包概念。一个文件属于一个包，而不能单独存在。 天然支持并发 垃圾回收机制，内存自动回收 管道机制，实现不同的goroute之前相互通信 函数可以返回多个值 切片slice、延时执行defer 下载安装 略 详情见官网
-配置环境 go env set GO111MODULE = &amp;#34;on&amp;#34; go env set GOPROXY = &amp;#34;http://goproxy.cn&amp;#34; go工具 go run xxx.go #执行程序 go build xxx.go #编译程序 go clean #清除对象文件和混存文件 go env #查看环境信息 go test #编译且安装包和依赖 go tool #运行特定的go tool go list #查看包和模块 go version #查看go版本 go get #下载安装包和依赖 go install #编译安装包和依赖 关键字 break default func interface select case defer go map struct chan else goto package switch const fallthrough if range type continue for import return var 预定义名字</description>
+      <description>&lt;h2 id=&#34;go语言诞生&#34;&gt;go语言诞生&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;核心开发团队：Ken Thompson、Rob Pike、Robert Griesemer&lt;/li&gt;
+&lt;li&gt;诞生原因：
+&lt;ul&gt;
+&lt;li&gt;计算机硬件频繁更新，性能提高很快。目前主流语言明显落后于硬件，不能合理使用&lt;strong&gt;多核CPU&lt;/strong&gt;的优势提升软件性能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -41,13 +44,14 @@ const ( a1 = iota //0 a2 = iota //1 a3 = iota //2 ) 跳过某个值</description
       <pubDate>Mon, 06 Mar 2023 14:23:00 +0800</pubDate>
       
       <guid>https://earchou123.github.io/post/linux-command/</guid>
-      <description>bash快捷键 ctrl + a 移动到行首 ctrl + e 移动到行尾 ctrl + u 删除光标之前的字符 ctrl + k 删除光标这之后的字符 ctrl + l 清空屏幕终端内容，等同clear 三剑客（grep、awk、sed）及正则 grep 常用
-获取匹配行 grep pattern file 获取匹配内容 grep -o pattern file 获取匹配上下文 grep -A -B -C pattern file 过滤空行和注释行 grep &amp;#39;^$&amp;#39; passw.log -v | grep &amp;#39;^#&amp;#39; -v 文件检索
-递归搜索 grep pattern -r dir/ 展示匹配文件名 grep -H 111 /tmp/1 只展示文件名 grep -l 111 /tmp/1 范围约束
-搬砖中..
-进程过滤
-搬砖中..
-正则 搬砖中.</description>
+      <description>&lt;h2 id=&#34;bash快捷键&#34;&gt;bash快捷键&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ctrl + a 移动到行首&lt;/li&gt;
+&lt;li&gt;ctrl + e 移动到行尾&lt;/li&gt;
+&lt;li&gt;ctrl + u 删除光标之前的字符&lt;/li&gt;
+&lt;li&gt;ctrl + k 删除光标这之后的字符&lt;/li&gt;
+&lt;li&gt;ctrl + l 清空屏幕终端内容，等同clear&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -56,7 +60,12 @@ const ( a1 = iota //0 a2 = iota //1 a3 = iota //2 ) 跳过某个值</description
       <pubDate>Mon, 06 Mar 2023 14:22:40 +0800</pubDate>
       
       <guid>https://earchou123.github.io/post/docker-command/</guid>
-      <description>docker 服务相关命令 启动 systemctl start docker 状态 systemctl status docker 停止 systemctl stop docker 重启 systemctl restart docker 开机启动 systemctl enable docker docker镜像相关命令 查看镜像 docker images docker images -q #查看所有镜像id 搜索镜像 # docker search 镜像名称 docker search redis 拉取镜像 # docker pull 镜像名称 docker pull redis:5.0 删除镜像 # docker rmi 镜像:版本 docker rmi redis:5.0 docker rmi `docker images -q` #删除所有 查看镜像层数 # docker history 镜像名:版本号 dokcer hoistory app:1.0 docker system df -v #可以用来扫描镜像/容器大小 docker容器相关命令 查看容器 docker ps #查看当前运行中的容器 docker ps -a #查看所有容器 docker ps -l #显示最近创建的容器 docker ps -n #显示最近n个创建的容器 docker ps -q #静默模式，只显示容器编号 进入容器 docker exec 参数 例:</description>
+      <description>&lt;h2 id=&#34;docker-服务相关命令&#34;&gt;docker 服务相关命令&lt;/h2&gt;
+&lt;h3 id=&#34;启动&#34;&gt;启动&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;systemctl start docker
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;状态&#34;&gt;状态&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;systemctl status docker
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

@@ -56,12 +56,17 @@
     <a href="https://earchou123.github.io/records/git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E8%B4%A6%E5%8F%B7/">Git配置多个ssh</a>
   </h1>
   <time datetime="2023-03-08T13:55:19&#43;0800" class="post-date">Wed, Mar 8, 2023</time>
-  配置多个ssh（不同域名） 生成两个ssh密钥对
-ssh-keygen -t rsa -C &#39;github@qq.com&#39; -f ~/.ssh/github_id_rsa ssh-keygen -t rsa -C &#39;gitee@qq.com&#39; -f ~/.ssh/gitee_id_rsa 邮箱替换成自己对应的邮箱 -f 后面指定生成的密钥名。也可以直接ssh-keygen -t rsa -C 'gitee@qq.com',根据提示再输入文件名。指定文件名，防止把原来的密钥覆盖掉了，同时也便于区分。 在 ~/.ssh 目录下新建一个config文件，添加如下内容（其中Host和HostName填写git服务器的域名，IdentityFile指定私钥的路径）。内容如下
-# gitee Host gitee.com HostName gitee.com PreferredAuthentications publickey IdentityFile ~/.ssh/gitee_id_rsa # github Host github.com HostName github.com PreferredAuthentications publickey IdentityFile ~/.ssh/github_id_rsa 分别再git上配置公钥 打印公钥内容，分别添加到github和gitee上
-cat ~/.ssh/gitee_id_rsa.pub cat ~/.ssh/github_id_rsa.pub 右上角小头像 -&gt; settings -&gt; SSH and CPG Keys -&gt; New SSH Key -&gt; 粘贴公钥
-用ssh分别测试(需先完成上一步，才可以测试成功哦）
-ssh -T git@gitee.com ssh -T git@github.
+  <h2 id="配置多个ssh不同域名">配置多个ssh（不同域名）</h2>
+<ol>
+<li>生成两个ssh密钥对
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh-keygen -t rsa -C <span style="color:#e6db74">&#39;github@qq.com&#39;</span> -f ~/.ssh/github_id_rsa
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh-keygen -t rsa -C <span style="color:#e6db74">&#39;gitee@qq.com&#39;</span> -f ~/.ssh/gitee_id_rsa
+</span></span></code></pre></div><ul>
+<li>邮箱替换成自己对应的邮箱</li>
+<li>-f 后面指定生成的密钥名。也可以直接<code>ssh-keygen -t rsa -C 'gitee@qq.com'</code>,根据提示再输入文件名。指定文件名，防止把原来的密钥覆盖掉了，同时也便于区分。</li>
+</ul>
+</li>
+</ol>
   
   <div class="read-more-link">
     <a href="/records/git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E8%B4%A6%E5%8F%B7/">Read More…</a>
@@ -72,16 +77,12 @@ ssh -T git@gitee.com ssh -T git@github.
     <a href="https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%BA%8C%E5%8F%98%E9%87%8F%E5%B8%B8%E9%87%8F/">go基础（二）变量&amp;常量</a>
   </h1>
   <time datetime="2023-03-07T13:34:58&#43;0800" class="post-date">Tue, Mar 7, 2023</time>
-  变量 变量声明 语法
-var 变量名字 类型 = 表达式 var name string 批量声明
-var( name string age int b bool ) 变量初始化 var name string = &#34;hahah&#34; 类型推断
-var name = &#34;haha&#34; var age = 18 批量声明
-var name,age,b = &#34;haha&#34;,123,true 短变量声明
-只能放在函数内部，不能放在函数外部
-age := 123 常量 常量定义 const Name [type] = value
-const PI float32 = 3.14 常量一旦被定义，无法被修改
-iota 可被修改的常量编辑器
-const ( a1 = iota //0 a2 = iota //1 a3 = iota //2 ) 跳过某个值
+  <h1 id="变量">变量</h1>
+<h2 id="变量声明">变量声明</h2>
+<p>语法</p>
+<pre tabindex="0"><code>var 变量名字 类型 = 表达式
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">name</span> <span style="color:#66d9ef">string</span>
+</span></span></code></pre></div>
   
   <div class="read-more-link">
     <a href="/post/go%E5%9F%BA%E7%A1%80%E4%BA%8C%E5%8F%98%E9%87%8F%E5%B8%B8%E9%87%8F/">Read More…</a>
@@ -92,21 +93,33 @@ const ( a1 = iota //0 a2 = iota //1 a3 = iota //2 ) 跳过某个值
     <a href="https://earchou123.github.io/websites/go%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/">Go学习网站</a>
   </h1>
   <time datetime="2023-03-07T13:33:20&#43;0800" class="post-date">Tue, Mar 7, 2023</time>
-   官网
-https://golang.org/ 标准库
-https://golang.org/pkg/ go语言中文网 https://studygolang.com/ go语言中文网标准库
-https://studygolang.com/pkgdoc 地鼠文档
-https://www.topgoer.cn/ learnku
-https://learnku.com/ 无闻
-《Go 编程基础》 Go 语言学习资料与社区索引 
+  <ul>
+<li>官网<br>
+<a href="https://golang.org">https://golang.org/</a></li>
+<li>标准库<br>
+<a href="https://golang.org/pkg/">https://golang.org/pkg/</a></li>
+<li>go语言中文网 <br>
+<a href="https://studygolang.com/">https://studygolang.com/</a></li>
+</ul>
+  
+  <div class="read-more-link">
+    <a href="/websites/go%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/">Read More…</a>
+  </div>
   
 </article><article class="post">
   <h1 class="post-title">
     <a href="https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%B8%80%E7%89%B9%E7%82%B9%E5%91%BD%E5%90%8D/">go基础（一）特点&amp;命名</a>
   </h1>
   <time datetime="2023-03-07T13:31:58&#43;0800" class="post-date">Tue, Mar 7, 2023</time>
-  go语言诞生 核心开发团队：Ken Thompson、Rob Pike、Robert Griesemer 诞生原因： 计算机硬件频繁更新，性能提高很快。目前主流语言明显落后于硬件，不能合理使用多核CPU的优势提升软件性能 软件系统复杂程度越来越高，维护成本越来越高，目前缺少一个足够简洁高效的编程语言。 企业运行维护很多c/c++的项目，虽然速度快，编译速度却很慢，同时存在内存泄露等一系列问题。 go语言的特点 引入包概念。一个文件属于一个包，而不能单独存在。 天然支持并发 垃圾回收机制，内存自动回收 管道机制，实现不同的goroute之前相互通信 函数可以返回多个值 切片slice、延时执行defer 下载安装 略 详情见官网
-配置环境 go env set GO111MODULE = &#34;on&#34; go env set GOPROXY = &#34;http://goproxy.cn&#34; go工具 go run xxx.go #执行程序 go build xxx.go #编译程序 go clean #清除对象文件和混存文件 go env #查看环境信息 go test #编译且安装包和依赖 go tool #运行特定的go tool go list #查看包和模块 go version #查看go版本 go get #下载安装包和依赖 go install #编译安装包和依赖 关键字 break default func interface select case defer go map struct chan else goto package switch const fallthrough if range type continue for import return var 预定义名字
+  <h2 id="go语言诞生">go语言诞生</h2>
+<ul>
+<li>核心开发团队：Ken Thompson、Rob Pike、Robert Griesemer</li>
+<li>诞生原因：
+<ul>
+<li>计算机硬件频繁更新，性能提高很快。目前主流语言明显落后于硬件，不能合理使用<strong>多核CPU</strong>的优势提升软件性能</li>
+</ul>
+</li>
+</ul>
   
   <div class="read-more-link">
     <a href="/post/go%E5%9F%BA%E7%A1%80%E4%B8%80%E7%89%B9%E7%82%B9%E5%91%BD%E5%90%8D/">Read More…</a>
@@ -117,13 +130,14 @@ https://learnku.com/ 无闻
     <a href="https://earchou123.github.io/post/linux-command/">Linux Command</a>
   </h1>
   <time datetime="2023-03-06T14:23:00&#43;0800" class="post-date">Mon, Mar 6, 2023</time>
-  bash快捷键 ctrl + a 移动到行首 ctrl + e 移动到行尾 ctrl + u 删除光标之前的字符 ctrl + k 删除光标这之后的字符 ctrl + l 清空屏幕终端内容，等同clear 三剑客（grep、awk、sed）及正则 grep 常用
-获取匹配行 grep pattern file 获取匹配内容 grep -o pattern file 获取匹配上下文 grep -A -B -C pattern file 过滤空行和注释行 grep &#39;^$&#39; passw.log -v | grep &#39;^#&#39; -v 文件检索
-递归搜索 grep pattern -r dir/ 展示匹配文件名 grep -H 111 /tmp/1 只展示文件名 grep -l 111 /tmp/1 范围约束
-搬砖中..
-进程过滤
-搬砖中..
-正则 搬砖中.
+  <h2 id="bash快捷键">bash快捷键</h2>
+<ul>
+<li>ctrl + a 移动到行首</li>
+<li>ctrl + e 移动到行尾</li>
+<li>ctrl + u 删除光标之前的字符</li>
+<li>ctrl + k 删除光标这之后的字符</li>
+<li>ctrl + l 清空屏幕终端内容，等同clear</li>
+</ul>
   
   <div class="read-more-link">
     <a href="/post/linux-command/">Read More…</a>
@@ -134,7 +148,12 @@ https://learnku.com/ 无闻
     <a href="https://earchou123.github.io/post/docker-command/">Docker Command</a>
   </h1>
   <time datetime="2023-03-06T14:22:40&#43;0800" class="post-date">Mon, Mar 6, 2023</time>
-  docker 服务相关命令 启动 systemctl start docker 状态 systemctl status docker 停止 systemctl stop docker 重启 systemctl restart docker 开机启动 systemctl enable docker docker镜像相关命令 查看镜像 docker images docker images -q #查看所有镜像id 搜索镜像 # docker search 镜像名称 docker search redis 拉取镜像 # docker pull 镜像名称 docker pull redis:5.0 删除镜像 # docker rmi 镜像:版本 docker rmi redis:5.0 docker rmi `docker images -q` #删除所有 查看镜像层数 # docker history 镜像名:版本号 dokcer hoistory app:1.0 docker system df -v #可以用来扫描镜像/容器大小 docker容器相关命令 查看容器 docker ps #查看当前运行中的容器 docker ps -a #查看所有容器 docker ps -l #显示最近创建的容器 docker ps -n #显示最近n个创建的容器 docker ps -q #静默模式，只显示容器编号 进入容器 docker exec 参数 例:
+  <h2 id="docker-服务相关命令">docker 服务相关命令</h2>
+<h3 id="启动">启动</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl start docker
+</span></span></code></pre></div><h3 id="状态">状态</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl status docker
+</span></span></code></pre></div>
   
   <div class="read-more-link">
     <a href="/post/docker-command/">Read More…</a>
@@ -145,10 +164,12 @@ https://learnku.com/ 无闻
     <a href="https://earchou123.github.io/about/">About</a>
   </h1>
   <time datetime="2023-03-06T13:51:15&#43;0800" class="post-date">Mon, Mar 6, 2023</time>
-  自我介绍 说啥好呢&hellip;
-个人主页 https://earchou123.github.io/
-Github https://github.com/earchou123
-联系我 Email earchou123@gmail.com
+  <h2 id="自我介绍">自我介绍</h2>
+<p>说啥好呢&hellip;</p>
+  
+  <div class="read-more-link">
+    <a href="/about/">Read More…</a>
+  </div>
   
 </article><article class="post">
   <h1 class="post-title">
