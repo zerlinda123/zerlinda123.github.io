@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.111.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Git配置多个ssh &middot; Zerlinda‘s blog</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-0e ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://earchou123.github.io/"><h1>Zerlinda‘s blog</h1></a>
+      <p class="lead">
+       This is Zerlinda’s blog 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://earchou123.github.io/">Home</a> </li>
+        <li><a href="/post/"> Posts </a></li><li><a href="/tags/"> Tags </a></li><li><a href="/categories/"> Categories </a></li><li><a href="/about/"> About </a></li><li><a href="/welcome/"> Welcome </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Git配置多个ssh</h1>
+  <time datetime=2023-03-08T13:55:19&#43;0800 class="post-date">Wed, Mar 8, 2023</time>
+  <h2 id="配置多个ssh不同域名">配置多个ssh（不同域名）</h2>
+<ol>
+<li>
+<p>生成两个ssh密钥对</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh-keygen -t rsa -C <span style="color:#e6db74">&#39;github@qq.com&#39;</span> -f ~/.ssh/github_id_rsa
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh-keygen -t rsa -C <span style="color:#e6db74">&#39;gitee@qq.com&#39;</span> -f ~/.ssh/gitee_id_rsa
+</span></span></code></pre></div><ul>
+<li>邮箱替换成自己对应的邮箱</li>
+<li>-f 后面指定生成的密钥名。也可以直接<code>ssh-keygen -t rsa -C 'gitee@qq.com'</code>,根据提示再输入文件名。指定文件名，防止把原来的密钥覆盖掉了，同时也便于区分。</li>
+</ul>
+</li>
+<li>
+<p>在 ~/.ssh 目录下新建一个config文件，添加如下内容（其中Host和HostName填写git服务器的域名，IdentityFile指定私钥的路径）。内容如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># gitee</span>
+</span></span><span style="display:flex;"><span>Host gitee.com
+</span></span><span style="display:flex;"><span>HostName gitee.com
+</span></span><span style="display:flex;"><span>PreferredAuthentications publickey
+</span></span><span style="display:flex;"><span>IdentityFile ~/.ssh/gitee_id_rsa
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># github</span>
+</span></span><span style="display:flex;"><span>Host github.com
+</span></span><span style="display:flex;"><span>HostName github.com
+</span></span><span style="display:flex;"><span>PreferredAuthentications publickey
+</span></span><span style="display:flex;"><span>IdentityFile ~/.ssh/github_id_rsa
+</span></span></code></pre></div></li>
+<li>
+<p>分别再git上配置公钥  <br>
+打印公钥内容，分别添加到github和gitee上</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cat ~/.ssh/gitee_id_rsa.pub     
+</span></span><span style="display:flex;"><span>cat ~/.ssh/github_id_rsa.pub
+</span></span></code></pre></div><p>右上角小头像 -&gt; settings -&gt; SSH and CPG Keys -&gt; New SSH Key -&gt; 粘贴公钥</p>
+</li>
+<li>
+<p>用ssh分别测试(需先完成上一步，才可以测试成功哦）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh -T git@gitee.com
+</span></span><span style="display:flex;"><span>ssh -T git@github.com
+</span></span></code></pre></div><blockquote>
+<p>以上内容git官网也有详细说明<a href="https://gitee.com/help/articles/4229#article-header0">https://gitee.com/help/articles/4229#article-header0</a></p>
+</blockquote>
+<p>接下来。如果同一个电脑要配置多个gitee或者github呢？</p>
+</li>
+</ol>
+<h2 id="配置多个ssh相同域名">配置多个ssh（相同域名）</h2>
+<ol>
+<li>
+<p>生成两个ssh密钥对</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh-keygen -t rsa -C <span style="color:#e6db74">&#39;github@qq.com&#39;</span> -f ~/.ssh/github_id_rsa1
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh-keygen -t rsa -C <span style="color:#e6db74">&#39;github2@qq.com&#39;</span> -f ~/.ssh/gitee_id_rsa2
+</span></span></code></pre></div></li>
+<li>
+<p>在 ~/.ssh 目录下新建一个config文件，添加如下内容（其中Host和HostName填写git服务器的域名，IdentityFile指定私钥的路径）。内容如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># github1</span>
+</span></span><span style="display:flex;"><span>Host github.com
+</span></span><span style="display:flex;"><span>HostName github.com
+</span></span><span style="display:flex;"><span>PreferredAuthentications publickey
+</span></span><span style="display:flex;"><span>IdentityFile ~/.ssh/github_id_rsa1
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># github2</span>
+</span></span><span style="display:flex;"><span>Host github-test.com
+</span></span><span style="display:flex;"><span>HostName github.com
+</span></span><span style="display:flex;"><span>PreferredAuthentications publickey
+</span></span><span style="display:flex;"><span>IdentityFile ~/.ssh/github_id_rsa2
+</span></span></code></pre></div></li>
+<li>
+<p>分别再git上配置公钥 <br>
+打印公钥内容，分别添加到对应的github账号上</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cat ~/.ssh/github_id_rsa1.pub    
+</span></span><span style="display:flex;"><span>cat ~/.ssh/github_id_rsa2.pub
+</span></span></code></pre></div><p>右上角小头像 -&gt; settings -&gt; SSH and CPG Keys -&gt; New SSH Key -&gt; 粘贴公钥</p>
+</li>
+<li>
+<p>用ssh分别测试（需先完成上一步，才可以测试成功哦）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh -T git@github.com
+</span></span><span style="display:flex;"><span>ssh -T git@github-test.com
+</span></span></code></pre></div></li>
+<li>
+<p>git clone 的时候，要使用第二个密钥（github_id_rsa2），需要改动下github的域名即可。 <br>
+github1使用（github_id_rsa1） <br>
+<code>git clone git@github.com:xxx/xxxx.git</code> <br>
+github2使用（github_id_rsa2）<br>
+<code>git clone git@github-test.com:xxx/xxxx.git </code></p>
+</li>
+</ol>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

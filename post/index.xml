@@ -26,12 +26,12 @@ const ( a1 = iota //0 a2 = iota //1 a3 = iota //2 ) 跳过某个值</description
     </item>
     
     <item>
-      <title>go基础（一）</title>
-      <link>https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%B8%80/</link>
+      <title>go基础（一）特点&amp;命名</title>
+      <link>https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%B8%80%E7%89%B9%E7%82%B9%E5%91%BD%E5%90%8D/</link>
       <pubDate>Tue, 07 Mar 2023 13:31:58 +0800</pubDate>
       
-      <guid>https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%B8%80/</guid>
-      <description>go语言诞生 核心开发团队：Ken Thompson、Rob Pike、Robert Griesemer 诞生原因： 计算机硬件频繁更新，性能提高很快。目前主流语言明显落后于硬件，不能合理使用多核CPU的优势提升软件性能 软件系统复杂程度越来越高，维护成本越来越高，目前缺少一个足够简洁高效的编程语言。 企业运行维护很多c/c++的项目，虽然速度快，编译速度却很慢，同时存在内存泄露等一系列问题。 发展历程： 2007，谷歌工程师Rob Pike，Ken Thompson和Robert Criesemer开始设计一门全新的语言。这是Go语言的最初模型 2009-11-10，Go开源发布 2015-08-19，Go1.5发布 2017-02-17，Go1.8发布 2017-08-24，Go1.9发布 2018-02-16，Go1.10发布 &amp;hellip;（点击查看更多详情） 2023-02-01,Go1.20发布 go语言的特点 引入包概念。一个文件属于一个包，而不能单独存在。 天然支持并发 垃圾回收机制，内存自动回收 管道机制，实现不同的goroute之前相互通信 函数可以返回多个值 切片slice、延时执行defer 下载安装 略 详情见官网
+      <guid>https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%B8%80%E7%89%B9%E7%82%B9%E5%91%BD%E5%90%8D/</guid>
+      <description>go语言诞生 核心开发团队：Ken Thompson、Rob Pike、Robert Griesemer 诞生原因： 计算机硬件频繁更新，性能提高很快。目前主流语言明显落后于硬件，不能合理使用多核CPU的优势提升软件性能 软件系统复杂程度越来越高，维护成本越来越高，目前缺少一个足够简洁高效的编程语言。 企业运行维护很多c/c++的项目，虽然速度快，编译速度却很慢，同时存在内存泄露等一系列问题。 go语言的特点 引入包概念。一个文件属于一个包，而不能单独存在。 天然支持并发 垃圾回收机制，内存自动回收 管道机制，实现不同的goroute之前相互通信 函数可以返回多个值 切片slice、延时执行defer 下载安装 略 详情见官网
 配置环境 go env set GO111MODULE = &amp;#34;on&amp;#34; go env set GOPROXY = &amp;#34;http://goproxy.cn&amp;#34; go工具 go run xxx.go #执行程序 go build xxx.go #编译程序 go clean #清除对象文件和混存文件 go env #查看环境信息 go test #编译且安装包和依赖 go tool #运行特定的go tool go list #查看包和模块 go version #查看go版本 go get #下载安装包和依赖 go install #编译安装包和依赖 关键字 break default func interface select case defer go map struct chan else goto package switch const fallthrough if range type continue for import return var 预定义名字</description>
     </item>
     

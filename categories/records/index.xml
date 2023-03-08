@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>records on Zerlinda‘s blog</title>
+    <link>https://earchou123.github.io/categories/records/</link>
+    <description>Recent content in records on Zerlinda‘s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Mar 2023 13:55:19 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/categories/records/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git配置多个ssh</title>
+      <link>https://earchou123.github.io/records/git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E8%B4%A6%E5%8F%B7/</link>
+      <pubDate>Wed, 08 Mar 2023 13:55:19 +0800</pubDate>
+      
+      <guid>https://earchou123.github.io/records/git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E8%B4%A6%E5%8F%B7/</guid>
+      <description>配置多个ssh（不同域名） 生成两个ssh密钥对
+ssh-keygen -t rsa -C &amp;#39;github@qq.com&amp;#39; -f ~/.ssh/github_id_rsa ssh-keygen -t rsa -C &amp;#39;gitee@qq.com&amp;#39; -f ~/.ssh/gitee_id_rsa 邮箱替换成自己对应的邮箱 -f 后面指定生成的密钥名。也可以直接ssh-keygen -t rsa -C &#39;gitee@qq.com&#39;,根据提示再输入文件名。指定文件名，防止把原来的密钥覆盖掉了，同时也便于区分。 在 ~/.ssh 目录下新建一个config文件，添加如下内容（其中Host和HostName填写git服务器的域名，IdentityFile指定私钥的路径）。内容如下
+# gitee Host gitee.com HostName gitee.com PreferredAuthentications publickey IdentityFile ~/.ssh/gitee_id_rsa # github Host github.com HostName github.com PreferredAuthentications publickey IdentityFile ~/.ssh/github_id_rsa 分别再git上配置公钥 打印公钥内容，分别添加到github和gitee上
+cat ~/.ssh/gitee_id_rsa.pub cat ~/.ssh/github_id_rsa.pub 右上角小头像 -&amp;gt; settings -&amp;gt; SSH and CPG Keys -&amp;gt; New SSH Key -&amp;gt; 粘贴公钥
+用ssh分别测试(需先完成上一步，才可以测试成功哦）
+ssh -T git@gitee.com ssh -T git@github.</description>
+    </item>
+    
+  </channel>
+</rss>

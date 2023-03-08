@@ -53,6 +53,22 @@
     <div class="posts">
 <article class="post">
   <h1 class="post-title">
+    <a href="https://earchou123.github.io/records/git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E8%B4%A6%E5%8F%B7/">Git配置多个ssh</a>
+  </h1>
+  <time datetime="2023-03-08T13:55:19&#43;0800" class="post-date">Wed, Mar 8, 2023</time>
+  配置多个ssh（不同域名） 生成两个ssh密钥对
+ssh-keygen -t rsa -C &#39;github@qq.com&#39; -f ~/.ssh/github_id_rsa ssh-keygen -t rsa -C &#39;gitee@qq.com&#39; -f ~/.ssh/gitee_id_rsa 邮箱替换成自己对应的邮箱 -f 后面指定生成的密钥名。也可以直接ssh-keygen -t rsa -C 'gitee@qq.com',根据提示再输入文件名。指定文件名，防止把原来的密钥覆盖掉了，同时也便于区分。 在 ~/.ssh 目录下新建一个config文件，添加如下内容（其中Host和HostName填写git服务器的域名，IdentityFile指定私钥的路径）。内容如下
+# gitee Host gitee.com HostName gitee.com PreferredAuthentications publickey IdentityFile ~/.ssh/gitee_id_rsa # github Host github.com HostName github.com PreferredAuthentications publickey IdentityFile ~/.ssh/github_id_rsa 分别再git上配置公钥 打印公钥内容，分别添加到github和gitee上
+cat ~/.ssh/gitee_id_rsa.pub cat ~/.ssh/github_id_rsa.pub 右上角小头像 -&gt; settings -&gt; SSH and CPG Keys -&gt; New SSH Key -&gt; 粘贴公钥
+用ssh分别测试(需先完成上一步，才可以测试成功哦）
+ssh -T git@gitee.com ssh -T git@github.
+  
+  <div class="read-more-link">
+    <a href="/records/git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E8%B4%A6%E5%8F%B7/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
     <a href="https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%BA%8C%E5%8F%98%E9%87%8F%E5%B8%B8%E9%87%8F/">go基础（二）变量&amp;常量</a>
   </h1>
   <time datetime="2023-03-07T13:34:58&#43;0800" class="post-date">Tue, Mar 7, 2023</time>
@@ -86,14 +102,14 @@ https://learnku.com/ 无闻
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%B8%80/">go基础（一）</a>
+    <a href="https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E4%B8%80%E7%89%B9%E7%82%B9%E5%91%BD%E5%90%8D/">go基础（一）特点&amp;命名</a>
   </h1>
   <time datetime="2023-03-07T13:31:58&#43;0800" class="post-date">Tue, Mar 7, 2023</time>
-  go语言诞生 核心开发团队：Ken Thompson、Rob Pike、Robert Griesemer 诞生原因： 计算机硬件频繁更新，性能提高很快。目前主流语言明显落后于硬件，不能合理使用多核CPU的优势提升软件性能 软件系统复杂程度越来越高，维护成本越来越高，目前缺少一个足够简洁高效的编程语言。 企业运行维护很多c/c++的项目，虽然速度快，编译速度却很慢，同时存在内存泄露等一系列问题。 发展历程： 2007，谷歌工程师Rob Pike，Ken Thompson和Robert Criesemer开始设计一门全新的语言。这是Go语言的最初模型 2009-11-10，Go开源发布 2015-08-19，Go1.5发布 2017-02-17，Go1.8发布 2017-08-24，Go1.9发布 2018-02-16，Go1.10发布 &hellip;（点击查看更多详情） 2023-02-01,Go1.20发布 go语言的特点 引入包概念。一个文件属于一个包，而不能单独存在。 天然支持并发 垃圾回收机制，内存自动回收 管道机制，实现不同的goroute之前相互通信 函数可以返回多个值 切片slice、延时执行defer 下载安装 略 详情见官网
+  go语言诞生 核心开发团队：Ken Thompson、Rob Pike、Robert Griesemer 诞生原因： 计算机硬件频繁更新，性能提高很快。目前主流语言明显落后于硬件，不能合理使用多核CPU的优势提升软件性能 软件系统复杂程度越来越高，维护成本越来越高，目前缺少一个足够简洁高效的编程语言。 企业运行维护很多c/c++的项目，虽然速度快，编译速度却很慢，同时存在内存泄露等一系列问题。 go语言的特点 引入包概念。一个文件属于一个包，而不能单独存在。 天然支持并发 垃圾回收机制，内存自动回收 管道机制，实现不同的goroute之前相互通信 函数可以返回多个值 切片slice、延时执行defer 下载安装 略 详情见官网
 配置环境 go env set GO111MODULE = &#34;on&#34; go env set GOPROXY = &#34;http://goproxy.cn&#34; go工具 go run xxx.go #执行程序 go build xxx.go #编译程序 go clean #清除对象文件和混存文件 go env #查看环境信息 go test #编译且安装包和依赖 go tool #运行特定的go tool go list #查看包和模块 go version #查看go版本 go get #下载安装包和依赖 go install #编译安装包和依赖 关键字 break default func interface select case defer go map struct chan else goto package switch const fallthrough if range type continue for import return var 预定义名字
   
   <div class="read-more-link">
-    <a href="/post/go%E5%9F%BA%E7%A1%80%E4%B8%80/">Read More…</a>
+    <a href="/post/go%E5%9F%BA%E7%A1%80%E4%B8%80%E7%89%B9%E7%82%B9%E5%91%BD%E5%90%8D/">Read More…</a>
   </div>
   
 </article><article class="post">
