@@ -222,13 +222,16 @@
 <h2 id="字符串类型">字符串类型</h2>
 <ul>
 <li>
-<p>双引号扩起来的内容，可以识别转义字符</p>
+<p><strong>双引号</strong>扩起来的内容，可以识别转义字符</p>
 </li>
 <li>
-<p>反引号扩起来，表示原生字符串，没有转义操作，可用于写正则，防攻击等</p>
+<p><strong>反引号</strong>扩起来，表示原生字符串，没有转义操作，可用于写正则，防攻击等。</p>
 </li>
 <li>
-<p>默认值&quot;&quot;</p>
+<p>使用多行字符串时，用<strong>反引号</strong>。</p>
+</li>
+<li>
+<p>默认值<code>&quot;&quot;</code></p>
 </li>
 <li>
 <p>字符串连接方式</p>
@@ -292,13 +295,18 @@
 <li>
 <p>字符串常用函数</p>
 <ul>
-<li><code>len</code>字符串长度（返回字符串中的字节数，不是rune字符数）
+<li><code>len()</code>字符串长度（返回字符串中的字节数，不是rune字符数）
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;hello world&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">s2</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;中文字符&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(len(<span style="color:#a6e22e">s</span>))  <span style="color:#75715e">//11
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(len(<span style="color:#a6e22e">s2</span>))  <span style="color:#75715e">//12
 </span></span></span></code></pre></div></li>
-<li></li>
+<li><code>+</code>号或<code>fmt.Sprintf</code>  拼接字符串</li>
+<li><code>strings.Split()</code>  分割</li>
+<li><code>strings.contains()</code>  判断是否包含</li>
+<li><code>strings.HasPrefix()</code>,<code>strings.HasSuffix()</code>  前缀/后缀判断</li>
+<li><code>strings.Index()</code>,<code>strings.LastIndex()</code> 子串出现位置</li>
+<li><code>strings.Join(a[]string,sep string)</code> join操作</li>
 </ul>
 </li>
 <li>
@@ -364,10 +372,31 @@
 <h2 id="字符类型">字符类型</h2>
 <ul>
 <li>单引号扩起来</li>
-<li>本质上一个整数，输出为改字符对应的UTF-8编码</li>
+<li>本质上一个整数，输出为该字符对应的UTF-8编码</li>
 <li>可以进行运算，相当于整数，因为他们都有对应的Unicode编码</li>
 <li>给一个变量赋值数字，输出按格式化%c，会输出对应的Unicode编码</li>
 </ul>
+<h3 id="go语言的字符有以下两种">go语言的字符有以下两种</h3>
+<ol>
+<li>uint8类型，叫byte型，代表一个ASCII码字符。</li>
+<li>rune类型，代表一个UTF-8字符。int32.</li>
+</ol>
+<p>字符串遍历例子</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;hello你好&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">s</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> { <span style="color:#75715e">//byte
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%v(%c) &#34;</span>, <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>])
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>() 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//104(h) 101(e) 108(l) 108(l) 111(o) 228(ä) 189(½) 160( ) 229(å) 165(¥) 189(½) 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">s</span> { <span style="color:#75715e">//rune
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%v(%c) &#34;</span>, <span style="color:#a6e22e">r</span>, <span style="color:#a6e22e">r</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>()
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 104(h) 101(e) 108(l) 108(l) 111(o) 20320(你) 22909(好) 
+</span></span></span></code></pre></div><blockquote>
+<p>参考<a href="https://www.liwenzhou.com/posts/Go/datatype/">https://www.liwenzhou.com/posts/Go/datatype/</a></p>
+</blockquote>
 <h2 id="基本数据转换">基本数据转换</h2>
 <ul>
 <li>需要显示转换，不能自动转换</li>
