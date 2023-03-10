@@ -94,18 +94,25 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">a5</span> = <span style="color:#66d9ef">iota</span>  <span style="color:#75715e">//4
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a1</span>, <span style="color:#a6e22e">a3</span>, <span style="color:#a6e22e">a4</span>, <span style="color:#a6e22e">a5</span>)
-</span></span></code></pre></div><h2 id="tips">Tips</h2>
+</span></span></code></pre></div><h2 id="值类型和引用类型">值类型和引用类型</h2>
 <ul>
-<li>变量不能重复声明</li>
-<li>只能放在函数内部，不能放在函数外部用于声明全局变量</li>
-<li>变量声明了，但没有使用，编译会报错</li>
-<li>值类型和引用类型
+<li>值类型：int、float、bool、string、数组、结构体
 <ul>
-<li>int、float、bool、string为值类型。变量直接指向内存中存在的值</li>
+<li>变量直接指向内存中存在的值，内存在栈上分配</li>
 <li>=号赋值为 值拷贝</li>
-<li>引用类型存储都是内存地址。</li>
 </ul>
 </li>
+<li>引用类型：指针、slice切片、map、管道chan、interface
+<ul>
+<li>引用类型存储都是内存地址，内存在堆上分配</li>
+</ul>
+</li>
+</ul>
+<h2 id="tips">Tips</h2>
+<ul>
+<li>变量不能重复声明</li>
+<li>:=短变量声明，只能放在函数内部，不能放在函数外部用于声明全局变量</li>
+<li>变量声明了，但没有使用，编译会报错</li>
 </ul>
 </div>
 

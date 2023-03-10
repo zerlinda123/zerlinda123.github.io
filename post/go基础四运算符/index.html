@@ -83,8 +83,18 @@
 </tr>
 </tbody>
 </table>
-<p>注意： ++（自增）和&ndash;（自减）在Go语言中是单独的语句，并不是运算符。</p>
-<h2 id="关系运算符">关系运算符</h2>
+<p>注意： ++（自增）和&ndash;（自减）在Go语言中是单独的语句，并不是运算符。go没有前++。
+以下为错误用法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span> = <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>
+</span></span></code></pre></div><p>正确使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span> = <span style="color:#a6e22e">i</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>) <span style="color:#75715e">//2
+</span></span></span></code></pre></div><h2 id="关系运算符">关系运算符</h2>
 <table>
 <thead>
 <tr>
@@ -169,12 +179,12 @@
 </tr>
 <tr>
 <td>&laquo;</td>
-<td>左移n位就是乘以2的n次方，高位丢弃，低位补0</td>
+<td>左移n位就是乘以2的n次方，符号位不变，低位补0</td>
 <td>1&laquo;2,即1左移2位 <!-- raw HTML omitted -->1*2*2=4<!-- raw HTML omitted --><!-- raw HTML omitted -->1二进制为001，1向左移动两位即100，十进制即是4<!-- raw HTML omitted --></td>
 </tr>
 <tr>
 <td>&raquo;</td>
-<td>右移n位就是除以2的n次方</td>
+<td>右移n位就是除以2的n次方，低位溢出，符号位不变，并用符号位补溢出的高位</td>
 <td>3&laquo;1,即3右移1位<!-- raw HTML omitted -->3/2*1=1（取整）<!-- raw HTML omitted --><!-- raw HTML omitted -->3二进制为011，右移1位即 001，丢弃了一个1，十进制即是1<!-- raw HTML omitted --></td>
 </tr>
 </tbody>
@@ -237,7 +247,24 @@
 <blockquote>
 <p>参考<a href="https://www.liwenzhou.com/posts/Go/operators/">https://www.liwenzhou.com/posts/Go/operators/</a></p>
 </blockquote>
-
+<h2 id="小试牛刀">小试牛刀</h2>
+<h3 id="有两个变量ab要求其进行交换但是不允许使用中间变量最终打印结果">有两个变量a,b，要求其进行交换，但是不允许使用中间变量，最终打印结果</h3>
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> = <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">a</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>)
+</span></span></code></pre></div></li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span> = <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">b</span> = <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span> = <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>)
+</span></span></code></pre></div></li>
+</ol>
 </div>
 
 

@@ -53,7 +53,7 @@
     <div class="posts">
 <article class="post">
   <h1 class="post-title">
-    <a href="https://earchou123.github.io/records/git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E8%B4%A6%E5%8F%B7/">Git配置多个ssh密钥对</a>
+    <a href="https://earchou123.github.io/post/git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E8%B4%A6%E5%8F%B7/">Git配置多个ssh密钥对</a>
   </h1>
   <time datetime="2023-03-08T13:55:19&#43;0800" class="post-date">Wed, Mar 8, 2023</time>
   <h2 id="配置多个ssh不同域名">配置多个ssh（不同域名）</h2>
@@ -69,7 +69,7 @@
 </ol>
   
   <div class="read-more-link">
-    <a href="/records/git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E8%B4%A6%E5%8F%B7/">Read More…</a>
+    <a href="/post/git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E8%B4%A6%E5%8F%B7/">Read More…</a>
   </div>
   
 </article><article class="post">
@@ -77,8 +77,49 @@
     <a href="https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E5%9B%9B%E8%BF%90%E7%AE%97%E7%AC%A6/">go基础（四）运算符</a>
   </h1>
   <time datetime="2023-03-07T15:31:58&#43;0800" class="post-date">Tue, Mar 7, 2023</time>
-  算术运算符 运算符 描述 + 相加 - 相减 * 相乘 / 相除 % 求余 注意： ++（自增）和&ndash;（自减）在Go语言中是单独的语句，并不是运算符。
-关系运算符 运算符 描述 == 值相等为true，否则为false != 值不相等为true，否则为false &gt; 大于为true，否则为false &gt;= 大于等于为true，否则为false &lt; 小于为true，否则为false &lt;= 小与等于为ture，否则为false 逻辑运算符 运算符 描述 &amp;&amp; 逻辑AND。操作数两边都位true，则为true，否则为false ｜｜ 逻辑OR。操作数两边有一个是true，则为true，否则为false ！ 逻辑NOT。条件为true则为false，否则为true 位运算 运算符 描述 例子 &amp; 参与运算的两数进行二进位相与。 1&amp;1=1，1&amp;0=0 ｜ 参与运算的两数进行二进位相或。 1｜1=1，1｜0=1，0｜0=0 ^ 参与运算的两数进行二进位相异或。 1^1=0,1&amp;0=1,0^0=0 &laquo; 左移n位就是乘以2的n次方，高位丢弃，低位补0 1&laquo;2,即1左移2位 1*2*2=41二进制为001，1向左移动两位即100，十进制即是4 &raquo; 右移n位就是除以2的n次方 3&laquo;1,即3右移1位3/2*1=1（取整）3二进制为011，右移1位即 001，丢弃了一个1，十进制即是1 赋值运算 运算符 描述 = 右边的值赋值给左边的变量 += 相加后再赋值 -= 相减后再赋值 *= 相乘后再赋值 /= 相除后再赋值 %= 求余后再赋值 &laquo;= 左移后赋值 &raquo;= 右移后赋值 &amp;= 按位与后赋值 ｜= 按位或后赋值 ^= 按位异或后赋值 参考https://www.
+  <h2 id="算术运算符">算术运算符</h2>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>相加</td>
+</tr>
+<tr>
+<td>-</td>
+<td>相减</td>
+</tr>
+<tr>
+<td>*</td>
+<td>相乘</td>
+</tr>
+<tr>
+<td>/</td>
+<td>相除</td>
+</tr>
+<tr>
+<td>%</td>
+<td>求余</td>
+</tr>
+</tbody>
+</table>
+<p>注意： ++（自增）和&ndash;（自减）在Go语言中是单独的语句，并不是运算符。go没有前++。
+以下为错误用法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span> = <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>
+</span></span></code></pre></div><p>正确使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span> = <span style="color:#a6e22e">i</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>) <span style="color:#75715e">//2
+</span></span></span></code></pre></div>
   
   <div class="read-more-link">
     <a href="/post/go%E5%9F%BA%E7%A1%80%E5%9B%9B%E8%BF%90%E7%AE%97%E7%AC%A6/">Read More…</a>
@@ -143,7 +184,7 @@
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://earchou123.github.io/websites/go%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/">Go学习网站收集</a>
+    <a href="https://earchou123.github.io/post/go%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/">Go学习网站收集</a>
   </h1>
   <time datetime="2023-03-07T13:33:20&#43;0800" class="post-date">Tue, Mar 7, 2023</time>
   <ul>
@@ -156,7 +197,7 @@
 </ul>
   
   <div class="read-more-link">
-    <a href="/websites/go%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/">Read More…</a>
+    <a href="/post/go%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/">Read More…</a>
   </div>
   
 </article><article class="post">

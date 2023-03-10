@@ -13,8 +13,49 @@
       <pubDate>Tue, 07 Mar 2023 15:31:58 +0800</pubDate>
       
       <guid>https://earchou123.github.io/post/go%E5%9F%BA%E7%A1%80%E5%9B%9B%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
-      <description>算术运算符 运算符 描述 + 相加 - 相减 * 相乘 / 相除 % 求余 注意： ++（自增）和&amp;ndash;（自减）在Go语言中是单独的语句，并不是运算符。
-关系运算符 运算符 描述 == 值相等为true，否则为false != 值不相等为true，否则为false &amp;gt; 大于为true，否则为false &amp;gt;= 大于等于为true，否则为false &amp;lt; 小于为true，否则为false &amp;lt;= 小与等于为ture，否则为false 逻辑运算符 运算符 描述 &amp;amp;&amp;amp; 逻辑AND。操作数两边都位true，则为true，否则为false ｜｜ 逻辑OR。操作数两边有一个是true，则为true，否则为false ！ 逻辑NOT。条件为true则为false，否则为true 位运算 运算符 描述 例子 &amp;amp; 参与运算的两数进行二进位相与。 1&amp;amp;1=1，1&amp;amp;0=0 ｜ 参与运算的两数进行二进位相或。 1｜1=1，1｜0=1，0｜0=0 ^ 参与运算的两数进行二进位相异或。 1^1=0,1&amp;amp;0=1,0^0=0 &amp;laquo; 左移n位就是乘以2的n次方，高位丢弃，低位补0 1&amp;laquo;2,即1左移2位 1*2*2=41二进制为001，1向左移动两位即100，十进制即是4 &amp;raquo; 右移n位就是除以2的n次方 3&amp;laquo;1,即3右移1位3/2*1=1（取整）3二进制为011，右移1位即 001，丢弃了一个1，十进制即是1 赋值运算 运算符 描述 = 右边的值赋值给左边的变量 += 相加后再赋值 -= 相减后再赋值 *= 相乘后再赋值 /= 相除后再赋值 %= 求余后再赋值 &amp;laquo;= 左移后赋值 &amp;raquo;= 右移后赋值 &amp;amp;= 按位与后赋值 ｜= 按位或后赋值 ^= 按位异或后赋值 参考https://www.</description>
+      <description>&lt;h2 id=&#34;算术运算符&#34;&gt;算术运算符&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;运算符&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;+&lt;/td&gt;
+&lt;td&gt;相加&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;相减&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;相乘&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/&lt;/td&gt;
+&lt;td&gt;相除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%&lt;/td&gt;
+&lt;td&gt;求余&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;注意： ++（自增）和&amp;ndash;（自减）在Go语言中是单独的语句，并不是运算符。go没有前++。
+以下为错误用法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;正确使用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;//2
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
