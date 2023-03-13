@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.111.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>go基础（四）运算符 &middot; Zerlinda‘s blog</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-0e ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://earchou123.github.io/"><h1>Zerlinda‘s blog</h1></a>
+      <p class="lead">
+       This is Zerlinda’s blog 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://earchou123.github.io/">Home</a> </li>
+        <li><a href="/post/"> Posts </a></li><li><a href="/tags/"> Tags </a></li><li><a href="/categories/"> Categories </a></li><li><a href="/about/"> About </a></li><li><a href="/welcome/"> Welcome </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>go基础（四）运算符</h1>
+  <time datetime=2023-03-07T15:31:58&#43;0800 class="post-date">Tue, Mar 7, 2023</time>
+  <h2 id="算术运算符">算术运算符</h2>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>相加</td>
+</tr>
+<tr>
+<td>-</td>
+<td>相减</td>
+</tr>
+<tr>
+<td>*</td>
+<td>相乘</td>
+</tr>
+<tr>
+<td>/</td>
+<td>相除</td>
+</tr>
+<tr>
+<td>%</td>
+<td>求余</td>
+</tr>
+</tbody>
+</table>
+<p>注意： ++（自增）和&ndash;（自减）在Go语言中是单独的语句，并不是运算符。go没有前++。
+以下为错误用法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span> = <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>
+</span></span></code></pre></div><p>正确使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span> = <span style="color:#a6e22e">i</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>) <span style="color:#75715e">//2
+</span></span></span></code></pre></div><h2 id="关系运算符">关系运算符</h2>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>值相等为true，否则为false</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>值不相等为true，否则为false</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于为true，否则为false</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于为true，否则为false</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于为true，否则为false</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小与等于为ture，否则为false</td>
+</tr>
+</tbody>
+</table>
+<h2 id="逻辑运算符">逻辑运算符</h2>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;&amp;</td>
+<td>逻辑AND。操作数两边都位true，则为true，否则为false</td>
+</tr>
+<tr>
+<td>｜｜</td>
+<td>逻辑OR。操作数两边有一个是true，则为true，否则为false</td>
+</tr>
+<tr>
+<td>！</td>
+<td>逻辑NOT。条件为true则为false，否则为true</td>
+</tr>
+</tbody>
+</table>
+<h2 id="位运算符">位运算符</h2>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+<td>参与运算的两数进行二进位相与。</td>
+<td>1&amp;1=1，1&amp;0=0</td>
+</tr>
+<tr>
+<td>｜</td>
+<td>参与运算的两数进行二进位相或。</td>
+<td>1｜1=1，1｜0=1，0｜0=0</td>
+</tr>
+<tr>
+<td>^</td>
+<td>参与运算的两数进行二进位相异或。</td>
+<td>1^1=0,1&amp;0=1,0^0=0</td>
+</tr>
+<tr>
+<td>&laquo;</td>
+<td>左移n位就是乘以2的n次方，符号位不变，低位补0</td>
+<td>1&laquo;2,即1左移2位 <!-- raw HTML omitted -->1*2*2=4<!-- raw HTML omitted --><!-- raw HTML omitted -->1二进制为001，1向左移动两位即100，十进制即是4<!-- raw HTML omitted --></td>
+</tr>
+<tr>
+<td>&raquo;</td>
+<td>右移n位就是除以2的n次方，低位溢出，符号位不变，并用符号位补溢出的高位</td>
+<td>3&laquo;1,即3右移1位<!-- raw HTML omitted -->3/2*1=1（取整）<!-- raw HTML omitted --><!-- raw HTML omitted -->3二进制为011，右移1位即 001，丢弃了一个1，十进制即是1<!-- raw HTML omitted --></td>
+</tr>
+</tbody>
+</table>
+<h2 id="赋值运算符">赋值运算符</h2>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>右边的值赋值给左边的变量</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>相加后再赋值</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>相减后再赋值</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>相乘后再赋值</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>相除后再赋值</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>求余后再赋值</td>
+</tr>
+<tr>
+<td>&laquo;=</td>
+<td>左移后赋值</td>
+</tr>
+<tr>
+<td>&raquo;=</td>
+<td>右移后赋值</td>
+</tr>
+<tr>
+<td>&amp;=</td>
+<td>按位与后赋值</td>
+</tr>
+<tr>
+<td>｜=</td>
+<td>按位或后赋值</td>
+</tr>
+<tr>
+<td>^=</td>
+<td>按位异或后赋值</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>参考<a href="https://www.liwenzhou.com/posts/Go/operators/">https://www.liwenzhou.com/posts/Go/operators/</a></p>
+</blockquote>
+<h2 id="小试牛刀">小试牛刀</h2>
+<h3 id="有两个变量ab要求其进行交换但是不允许使用中间变量最终打印结果">有两个变量a,b，要求其进行交换，但是不允许使用中间变量，最终打印结果</h3>
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> = <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">a</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>)
+</span></span></code></pre></div></li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span> = <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">b</span> = <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span> = <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>)
+</span></span></code></pre></div></li>
+</ol>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

@@ -8,11 +8,20 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Mar 2023 13:33:20 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/categories/set/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Go学习网站收集</title>
-      <link>https://earchou123.github.io/post/go%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/</link>
+      <title>English learning</title>
+      <link>https://earchou123.github.io/post/english-learning/</link>
       <pubDate>Tue, 07 Mar 2023 13:33:20 +0800</pubDate>
       
-      <guid>https://earchou123.github.io/post/go%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/</guid>
+      <guid>https://earchou123.github.io/post/english-learning/</guid>
+      <description>音标 赖世雄美英音标 语法 雅思语法-新东方田静 Grammer in use（书籍、B站） 考试 雅思 口语 杨帅口语（学为贵） Tina口语（雅思哥） 写作 杜仕明写作（学为贵） 顾家北写作、词伙 Simon写作 阅读 刘洪波阅读真经 耕伟学长（B站） 听力 王陆语料库 何琼听力（腾讯课堂） 考试流程 搬砖中。。</description>
+    </item>
+    
+    <item>
+      <title>Go学习资源合集</title>
+      <link>https://earchou123.github.io/post/go-learning/</link>
+      <pubDate>Tue, 07 Mar 2023 13:33:20 +0800</pubDate>
+      
+      <guid>https://earchou123.github.io/post/go-learning/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;官网&lt;br&gt;
 &lt;a href=&#34;https://golang.org&#34;&gt;https://golang.org/&lt;/a&gt;&lt;/li&gt;

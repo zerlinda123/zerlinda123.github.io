@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.111.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>go基础（一）特点&amp;命名 &middot; Zerlinda‘s blog</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-0e ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://earchou123.github.io/"><h1>Zerlinda‘s blog</h1></a>
+      <p class="lead">
+       This is Zerlinda’s blog 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://earchou123.github.io/">Home</a> </li>
+        <li><a href="/post/"> Posts </a></li><li><a href="/tags/"> Tags </a></li><li><a href="/categories/"> Categories </a></li><li><a href="/about/"> About </a></li><li><a href="/welcome/"> Welcome </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>go基础（一）特点&amp;命名</h1>
+  <time datetime=2023-03-07T13:31:58&#43;0800 class="post-date">Tue, Mar 7, 2023</time>
+  <h2 id="go语言诞生">go语言诞生</h2>
+<ul>
+<li>核心开发团队：Ken Thompson、Rob Pike、Robert Griesemer</li>
+<li>诞生原因：
+<ul>
+<li>计算机硬件频繁更新，性能提高很快。目前主流语言明显落后于硬件，不能合理使用<strong>多核CPU</strong>的优势提升软件性能</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>软件系统复杂程度越来越高，维护成本越来越高，目前缺少一个足够简洁高效的编程语言。
+<ul>
+<li>企业运行维护很多c/c++的项目，虽然速度快，编译速度却很慢，同时存在内存泄露等一系列问题。</li>
+</ul>
+</li>
+</ul>
+<h2 id="go语言的特点">go语言的特点</h2>
+<ul>
+<li>引入包概念。一个文件属于一个包，而不能单独存在。</li>
+<li>天然支持并发</li>
+<li>垃圾回收机制，内存自动回收</li>
+<li>管道机制，实现不同的goroute之前相互通信</li>
+<li>函数可以返回多个值</li>
+<li>切片slice、延时执行defer</li>
+</ul>
+<h2 id="下载安装">下载安装</h2>
+<p>略
+<a href="https://go.dev/doc/install">详情见官网</a></p>
+<h2 id="配置环境">配置环境</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>go env set GO111MODULE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;on&#34;</span>
+</span></span><span style="display:flex;"><span>go env set GOPROXY <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://goproxy.cn&#34;</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="go工具">go工具</h2>
+<pre tabindex="0"><code>go run xxx.go     #执行程序
+go build xxx.go   #编译程序
+go clean          #清除对象文件和混存文件
+go env            #查看环境信息
+go test           #编译且安装包和依赖
+go tool           #运行特定的go tool
+go list           #查看包和模块
+go version        #查看go版本
+go get            #下载安装包和依赖
+go install        #编译安装包和依赖
+</code></pre><h2 id="关键字">关键字</h2>
+<pre tabindex="0"><code>break      default       func     interface   select
+case       defer         go       map         struct
+chan       else          goto     package     switch
+const      fallthrough   if       range       type
+continue   for           import   return      var
+</code></pre><p>预定义名字</p>
+<pre tabindex="0"><code>内建常量: true false iota nil
+
+内建类型: int int8 int16 int32 int64
+          uint uint8 uint16 uint32 uint64 uintptr
+          float32 float64 complex128 complex64
+          bool byte rune string error
+
+内建函数: make len cap new append copy close delete
+          complex real imag
+          panic recover
+</code></pre><h2 id="命名规范">命名规范</h2>
+<ul>
+<li>包名：一般和目录保持一致，小写单词，不使用下划线和混合大小写。</li>
+<li>文件名：消协单词，使用下划线分隔单词</li>
+<li>结构体名：驼峰命名，首字母根据访问控制大写或小写</li>
+<li>接口名：同结构体。单个函数结果名以“er”作为后缀</li>
+<li>变量名：同上。如appService变量类型为bool类型，则名称应以has、is、can或者allow开头</li>
+<li>常量名：均需使用大写字母组成，并使用下划线分词</li>
+</ul>
+<h2 id="仪式感--第一个go程序">仪式感&ndash;第一个go程序</h2>
+<p>创建文件夹 hello</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir hello
+</span></span><span style="display:flex;"><span>cd hello
+</span></span><span style="display:flex;"><span>go mod init
+</span></span></code></pre></div><p>创建文件 helloworld.go</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>执行 helloworld.go</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">helloworld</span>.<span style="color:#66d9ef">go</span>
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>Running<span style="color:#f92672">]</span> go run <span style="color:#e6db74">&#34;/Users/huangzeshan/go/src/hello/helloworld.go&#34;</span>
+</span></span><span style="display:flex;"><span>Hello world!
+</span></span></code></pre></div><h2 id="其他小tips">其他小tips</h2>
+<ul>
+<li>go语言严格区分大小写</li>
+<li>入口函数为main()</li>
+<li>go语言不需要在语句或者声明的末尾添加分号，除非一行上有多条语句。编译器会主动把特定符号后的换行符转换为分号</li>
+<li>go编译器是一行行行进行编译的，因此遗憾只能写一条语句，不能写多条语句</li>
+<li>import的包或者定义的变量没有使用到，代码编译不通过</li>
+</ul>
+<h2 id="编辑器">编辑器</h2>
+<ul>
+<li>
+<p>此处选择 <strong>Vscode</strong></p>
+</li>
+<li>
+<p>插件安装：</p>
+<ul>
+<li>Code Runner</li>
+<li>Go</li>
+</ul>
+</li>
+<li>
+<p>快捷键</p>
+<pre tabindex="0"><code>注释：   
+  单行注释：[ctrl+k,ctrl+c] 或 ctrl+/ 
+  取消单行注释：[ctrl+k,ctrl+u] (按下ctrl不放，再按k + u)   
+  多行注释：[alt+shift+A]  
+  多行注释：/**    
+
+折叠代码：   
+  ctrl + k + 0-9 (0是完全折叠)   
+  ctrl + shift + [ 折叠鼠标所在代码段     
+  ctrl + shift + ] 展开鼠标所在代码段    
+
+展开代码： ctrl + k + j (完全展开代码)   
+显示/隐藏左侧目录栏 ctrl + b   
+控制台终端显示与隐藏：ctrl + ~      
+复制当前行：shift + alt +up/down  
+删除当前行：shift + ctrl + k   s
+
+全局替换：ctrl + shift + h  
+当前文件替换：ctrl + h    
+全局查找文件：ctrl + shift + f  
+
+新建一个窗口 : ctrl + shift + n    
+拆分编辑器 : ctrl + 1/2/3 .  
+切换窗口 : ctrl + shift + left/right    
+切换全屏 : F11    
+
+代码格式化：shift + alt +f 
+</code></pre></li>
+</ul>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
