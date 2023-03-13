@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 08 Mar 2023 13:55:19 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/categories/records/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git配置多个ssh密钥对</title>
-      <link>https://earchou123.github.io/post/git-config/</link>
+      <link>https://earchou123.github.io/post/git-ssh-config/</link>
       <pubDate>Wed, 08 Mar 2023 13:55:19 +0800</pubDate>
       
-      <guid>https://earchou123.github.io/post/git-config/</guid>
+      <guid>https://earchou123.github.io/post/git-ssh-config/</guid>
       <description>&lt;h2 id=&#34;配置多个ssh不同域名&#34;&gt;配置多个ssh（不同域名）&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;生成两个ssh密钥对

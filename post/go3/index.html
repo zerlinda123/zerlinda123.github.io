@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>go基础（三）基础数据类型 &middot; Zerlinda‘s blog</title>
+  <title>Go（三）基础数据类型 &middot; Zerlinda‘s blog</title>
   <meta name="description" content="" />
 
   
@@ -50,9 +50,36 @@
 
     <main class="content container">
     <div class="post">
-  <h1>go基础（三）基础数据类型</h1>
+  <h1>Go（三）基础数据类型</h1>
   <time datetime=2023-03-07T14:31:58&#43;0800 class="post-date">Tue, Mar 7, 2023</time>
-  <p><em>详情看官网<a href="https://go.dev/doc/effective_go#data">https://go.dev/doc/effective_go#data</a></em></p>
+  <!-- raw HTML omitted -->
+<ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%80%BB%E8%A7%88">数据类型总览</a>
+<ul>
+<li><a href="#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B">数字类型</a></li>
+<li><a href="#%E6%B5%AE%E7%82%B9%E5%9E%8B">浮点型</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B">其他数字类型</a></li>
+</ul>
+</li>
+<li><a href="#bool%E7%B1%BB%E5%9E%8B">bool类型</a></li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B">字符串类型</a></li>
+<li><a href="#%E6%95%B0%E5%80%BC%E5%9E%8B">数值型</a>
+<ul>
+<li><a href="#%E6%95%B4%E5%9E%8B">整型</a></li>
+<li><a href="#%E6%B5%AE%E7%82%B9%E5%9E%8Bfloatfloat32float64">浮点型float（float32、float64）</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E7%B1%BB%E5%9E%8B">字符类型</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2">基本数据转换</a>
+<ul>
+<li><a href="#tv">Tv</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%88%90string">基本类型转换成string</a></li>
+<li><a href="#string%E8%BD%AC%E6%88%90%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">string转成基本数据类型</a></li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<p><em>详情看官网<a href="https://go.dev/doc/effective_go#data">https://go.dev/doc/effective_go#data</a></em></p>
 <h2 id="数据类型总览">数据类型总览</h2>
 <table>
 <thead>
@@ -376,7 +403,7 @@
 <li>可以进行运算，相当于整数，因为他们都有对应的Unicode编码</li>
 <li>给一个变量赋值数字，输出按格式化%c，会输出对应的Unicode编码</li>
 </ul>
-<h3 id="go语言的字符有以下两种">go语言的字符有以下两种</h3>
+<p>go语言的字符有以下两种</p>
 <ol>
 <li>uint8类型，叫byte型，代表一个ASCII码字符。</li>
 <li>rune类型，代表一个UTF-8字符。int32.</li>
@@ -398,9 +425,10 @@
 <p>参考<a href="https://www.liwenzhou.com/posts/Go/datatype/">https://www.liwenzhou.com/posts/Go/datatype/</a></p>
 </blockquote>
 <h2 id="基本数据转换">基本数据转换</h2>
+<h3 id="tv">T(v)</h3>
 <ul>
 <li>需要显示转换，不能自动转换</li>
-<li>表达式T(v) 。T为类型，v为值</li>
+<li>T为类型，v为值</li>
 </ul>
 <h3 id="基本类型转换成string">基本类型转换成string</h3>
 <ul>

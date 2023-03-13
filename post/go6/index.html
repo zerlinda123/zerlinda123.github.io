@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Go基础（六）数组&amp;切片 &middot; Zerlinda‘s blog</title>
+  <title>Go（六）数组&amp;切片 &middot; Zerlinda‘s blog</title>
   <meta name="description" content="" />
 
   
@@ -50,11 +50,25 @@
 
     <main class="content container">
     <div class="post">
-  <h1>Go基础（六）数组&amp;切片</h1>
+  <h1>Go（六）数组&amp;切片</h1>
   <time datetime=2023-03-09T18:14:30&#43;0800 class="post-date">Thu, Mar 9, 2023</time>
-  <h2 id="数组">数组</h2>
+  <!-- raw HTML omitted -->
+<ul>
+<li><a href="#%E6%95%B0%E7%BB%84">数组</a>
+<ul>
+<li><a href="#%E6%95%B0%E7%BB%84%E5%AE%9A%E4%B9%89">数组定义</a></li>
+<li><a href="#%E6%95%B0%E7%BB%84%E7%9A%84%E6%AF%94%E8%BE%83%E5%BD%93%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E5%80%BC%E5%92%8C%E7%B1%BB%E5%9E%8B%E9%83%BD%E7%9B%B8%E7%AD%89%E6%89%8D%E7%9B%B8%E7%AD%89">数组的比较：当两个数组的值和类型都相等，才相等</a></li>
+<li><a href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80">数组的内存布局</a></li>
+<li><a href="#tips">Tips</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%87%E7%89%87">切片</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="数组">数组</h2>
 <h3 id="数组定义">数组定义</h3>
-<p>数组长度固定,可以由0个或多个元素组成</p>
+<pre tabindex="0"><code>var 数组[数组大小]数据类型
+</code></pre><p>数组长度固定,可以由0个或多个元素组成</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arr1</span> = [<span style="color:#ae81ff">3</span>]<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arr2</span> [<span style="color:#f92672">...</span>]<span style="color:#66d9ef">int</span> <span style="color:#75715e">//数组不确定长度，由...代替，长度由初始化的数据决定
@@ -68,14 +82,20 @@
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">c</span> <span style="color:#f92672">:=</span> [<span style="color:#ae81ff">2</span>]<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>}
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">d</span> <span style="color:#f92672">:=</span> [<span style="color:#ae81ff">2</span>]<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>}
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">a</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">c</span>, <span style="color:#a6e22e">a</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">d</span>) <span style="color:#75715e">//true false false
-</span></span></span></code></pre></div><h3 id="tips">Tips</h3>
+</span></span></span></code></pre></div><h3 id="数组的内存布局">数组的内存布局</h3>
+<ul>
+<li>数组的地址通过数组名来获取 &amp;arr</li>
+<li>首元素地址就是数组的首地址</li>
+<li>数组个个元素地址间隔是依据数组的类型来决定的，如int -&gt; 8个字节</li>
+</ul>
+<h3 id="tips">Tips</h3>
 <ul>
 <li>数组是值传递，支持“==”，“！=”等操作符</li>
 <li>[n]*T表示指针数组，*[n]T表示数组指针</li>
 <li>多维数组只有第一层可以使用&hellip;来让编译器推导数组长度</li>
 </ul>
 <h2 id="切片">切片</h2>
-<p>搬砖中。</p>
+<p>搬砖中</p>
 </div>
 
 

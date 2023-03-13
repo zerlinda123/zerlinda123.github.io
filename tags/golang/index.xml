@@ -8,12 +8,31 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Mar 2023 18:14:37 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Go基础（五）程序流程控制</title>
+      <title>Go（五）程序流程控制</title>
       <link>https://earchou123.github.io/post/go5/</link>
       <pubDate>Thu, 09 Mar 2023 18:14:37 +0800</pubDate>
       
       <guid>https://earchou123.github.io/post/go5/</guid>
-      <description>&lt;h2 id=&#34;if&#34;&gt;if&lt;/h2&gt;
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#if&#34;&gt;if&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#switch&#34;&gt;switch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#for&#34;&gt;for&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#break&#34;&gt;break&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#continue&#34;&gt;continue&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%B7%B3%E8%BD%AC%E8%AF%AD%E5%8F%A5goto&#34;&gt;跳转语句goto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%B7%B3%E8%BD%AC%E8%AF%AD%E5%8F%A5return&#34;&gt;跳转语句return&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80&#34;&gt;小试牛刀&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%89%93%E5%8D%B0%E9%87%91%E5%AD%97%E5%A1%94&#34;&gt;打印金字塔&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%89%93%E5%8D%B0%E7%A9%BA%E5%BF%83%E7%9A%84%E9%87%91%E5%AD%97%E5%A1%94&#34;&gt;打印空心的金字塔&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%89%93%E5%8D%B0%E4%B9%98%E6%B3%95%E8%A1%A8&#34;&gt;打印乘法表&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81%E5%AE%9E%E7%8E%B0%E6%9C%89%E4%B8%89%E6%AC%A1%E6%9C%BA%E4%BC%9A%E5%A6%82%E6%9E%9C%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%BAearchou%E5%AF%86%E7%A0%81%E4%B8%BA123%E6%8F%90%E7%A4%BA%E7%99%BB%E5%BD%95%E6%88%90%E5%8A%9F%E5%90%A6%E5%88%99%E6%8F%90%E7%A4%BA%E8%BF%98%E6%9C%89%E5%87%A0%E6%AC%A1%E6%9C%BA%E4%BC%9A&#34;&gt;登录验证实现，有三次机会，如果用户名为“earchou”，密码为“123”，提示登录成功，否则提示还有几次机会。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;if&#34;&gt;if&lt;/h2&gt;
 &lt;p&gt;单分支&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;if 条件表达式{
     执行代码块
@@ -28,14 +47,28 @@
     </item>
     
     <item>
-      <title>Go基础（六）数组&amp;切片</title>
+      <title>Go（六）数组&amp;切片</title>
       <link>https://earchou123.github.io/post/go6/</link>
       <pubDate>Thu, 09 Mar 2023 18:14:30 +0800</pubDate>
       
       <guid>https://earchou123.github.io/post/go6/</guid>
-      <description>&lt;h2 id=&#34;数组&#34;&gt;数组&lt;/h2&gt;
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%95%B0%E7%BB%84&#34;&gt;数组&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%95%B0%E7%BB%84%E5%AE%9A%E4%B9%89&#34;&gt;数组定义&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%95%B0%E7%BB%84%E7%9A%84%E6%AF%94%E8%BE%83%E5%BD%93%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E5%80%BC%E5%92%8C%E7%B1%BB%E5%9E%8B%E9%83%BD%E7%9B%B8%E7%AD%89%E6%89%8D%E7%9B%B8%E7%AD%89&#34;&gt;数组的比较：当两个数组的值和类型都相等，才相等&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%95%B0%E7%BB%84%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80&#34;&gt;数组的内存布局&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tips&#34;&gt;Tips&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%88%87%E7%89%87&#34;&gt;切片&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;数组&#34;&gt;数组&lt;/h2&gt;
 &lt;h3 id=&#34;数组定义&#34;&gt;数组定义&lt;/h3&gt;
-&lt;p&gt;数组长度固定,可以由0个或多个元素组成&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var 数组[数组大小]数据类型
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;数组长度固定,可以由0个或多个元素组成&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;arr1&lt;/span&gt; = [&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;]&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;arr2&lt;/span&gt; [&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;]&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;//数组不确定长度，由...代替，长度由初始化的数据决定
@@ -47,12 +80,26 @@
     </item>
     
     <item>
-      <title>go基础（四）运算符</title>
+      <title>Go（四）运算符</title>
       <link>https://earchou123.github.io/post/go4/</link>
       <pubDate>Tue, 07 Mar 2023 15:31:58 +0800</pubDate>
       
       <guid>https://earchou123.github.io/post/go4/</guid>
-      <description>&lt;h2 id=&#34;算术运算符&#34;&gt;算术运算符&lt;/h2&gt;
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6&#34;&gt;算术运算符&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6&#34;&gt;关系运算符&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6&#34;&gt;逻辑运算符&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6&#34;&gt;位运算符&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6&#34;&gt;赋值运算符&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80&#34;&gt;小试牛刀&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%9C%89%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8Fab%E8%A6%81%E6%B1%82%E5%85%B6%E8%BF%9B%E8%A1%8C%E4%BA%A4%E6%8D%A2%E4%BD%86%E6%98%AF%E4%B8%8D%E5%85%81%E8%AE%B8%E4%BD%BF%E7%94%A8%E4%B8%AD%E9%97%B4%E5%8F%98%E9%87%8F%E6%9C%80%E7%BB%88%E6%89%93%E5%8D%B0%E7%BB%93%E6%9E%9C&#34;&gt;有两个变量a,b，要求其进行交换，但是不允许使用中间变量，最终打印结果&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;算术运算符&#34;&gt;算术运算符&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -88,12 +135,39 @@
     </item>
     
     <item>
-      <title>go基础（三）基础数据类型</title>
+      <title>Go（三）基础数据类型</title>
       <link>https://earchou123.github.io/post/go3/</link>
       <pubDate>Tue, 07 Mar 2023 14:31:58 +0800</pubDate>
       
       <guid>https://earchou123.github.io/post/go3/</guid>
-      <description>&lt;p&gt;&lt;em&gt;详情看官网&lt;a href=&#34;https://go.dev/doc/effective_go#data&#34;&gt;https://go.dev/doc/effective_go#data&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%80%BB%E8%A7%88&#34;&gt;数据类型总览&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B&#34;&gt;数字类型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%B5%AE%E7%82%B9%E5%9E%8B&#34;&gt;浮点型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%85%B6%E4%BB%96%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B&#34;&gt;其他数字类型&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bool%E7%B1%BB%E5%9E%8B&#34;&gt;bool类型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B&#34;&gt;字符串类型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%95%B0%E5%80%BC%E5%9E%8B&#34;&gt;数值型&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%95%B4%E5%9E%8B&#34;&gt;整型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%B5%AE%E7%82%B9%E5%9E%8Bfloatfloat32float64&#34;&gt;浮点型float（float32、float64）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%AD%97%E7%AC%A6%E7%B1%BB%E5%9E%8B&#34;&gt;字符类型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2&#34;&gt;基本数据转换&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#tv&#34;&gt;Tv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%88%90string&#34;&gt;基本类型转换成string&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#string%E8%BD%AC%E6%88%90%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B&#34;&gt;string转成基本数据类型&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;em&gt;详情看官网&lt;a href=&#34;https://go.dev/doc/effective_go#data&#34;&gt;https://go.dev/doc/effective_go#data&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;数据类型总览&#34;&gt;数据类型总览&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -129,12 +203,30 @@
     </item>
     
     <item>
-      <title>go基础（二）变量&amp;常量</title>
+      <title>Go（二）变量&amp;常量</title>
       <link>https://earchou123.github.io/post/go2/</link>
       <pubDate>Tue, 07 Mar 2023 13:34:58 +0800</pubDate>
       
       <guid>https://earchou123.github.io/post/go2/</guid>
-      <description>&lt;h2 id=&#34;变量&#34;&gt;变量&lt;/h2&gt;
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8F%98%E9%87%8F&#34;&gt;变量&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E&#34;&gt;变量声明&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96&#34;&gt;变量初始化&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%B8%B8%E9%87%8F&#34;&gt;常量&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%B8%B8%E9%87%8F%E5%AE%9A%E4%B9%89&#34;&gt;常量定义&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#iota&#34;&gt;iota&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B&#34;&gt;值类型和引用类型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tips&#34;&gt;Tips&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;变量&#34;&gt;变量&lt;/h2&gt;
 &lt;h3 id=&#34;变量声明&#34;&gt;变量声明&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
@@ -157,17 +249,33 @@
     </item>
     
     <item>
-      <title>go基础（一）特点&amp;命名</title>
+      <title>Go（一）特点&amp;命名</title>
       <link>https://earchou123.github.io/post/go1/</link>
       <pubDate>Tue, 07 Mar 2023 13:31:58 +0800</pubDate>
       
       <guid>https://earchou123.github.io/post/go1/</guid>
-      <description>&lt;h2 id=&#34;go语言诞生&#34;&gt;go语言诞生&lt;/h2&gt;
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#go%E8%AF%AD%E8%A8%80%E8%AF%9E%E7%94%9F&#34;&gt;go语言诞生&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#go%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E7%82%B9&#34;&gt;go语言的特点&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85&#34;&gt;下载安装&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83&#34;&gt;配置环境&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#go%E5%B7%A5%E5%85%B7&#34;&gt;go工具&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%85%B3%E9%94%AE%E5%AD%97&#34;&gt;关键字&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83&#34;&gt;命名规范&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BB%AA%E5%BC%8F%E6%84%9F--%E7%AC%AC%E4%B8%80%E4%B8%AAgo%E7%A8%8B%E5%BA%8F&#34;&gt;仪式感&amp;ndash;第一个go程序&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%85%B6%E4%BB%96%E5%B0%8Ftips&#34;&gt;其他小tips&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BC%96%E8%BE%91%E5%99%A8&#34;&gt;编辑器&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;go语言诞生&#34;&gt;go语言诞生&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;核心开发团队：Ken Thompson、Rob Pike、Robert Griesemer&lt;/li&gt;
 &lt;li&gt;诞生原因：
 &lt;ul&gt;
 &lt;li&gt;计算机硬件频繁更新，性能提高很快。目前主流语言明显落后于硬件，不能合理使用&lt;strong&gt;多核CPU&lt;/strong&gt;的优势提升软件性能&lt;/li&gt;
+&lt;li&gt;软件系统复杂程度越来越高，维护成本越来越高，目前缺少一个足够简洁高效的编程语言。&lt;/li&gt;
+&lt;li&gt;企业运行维护很多c/c++的项目，虽然速度快，编译速度却很慢，同时存在内存泄露等一系列问题。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</description>
