@@ -6,7 +6,41 @@
     <description>Recent content in golang on Zerlinda‘s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Mar 2023 18:15:30 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2023 18:16:50 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go（七）Map</title>
+      <link>https://earchou123.github.io/post/go7/</link>
+      <pubDate>Thu, 09 Mar 2023 18:16:50 +0800</pubDate>
+      
+      <guid>https://earchou123.github.io/post/go7/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#map%E5%AE%9A%E4%B9%89&#34;&gt;map定义&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#map%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5&#34;&gt;map增删改查&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%A2%9E%E5%8A%A0%E4%BF%AE%E6%94%B9&#34;&gt;增加/修改&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%88%A0%E9%99%A4&#34;&gt;删除&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%9F%A5%E6%89%BE&#34;&gt;查找&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#map%E9%81%8D%E5%8E%86&#34;&gt;map遍历&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#map%E5%88%87%E7%89%87&#34;&gt;map切片&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#map%E6%8E%92%E5%BA%8F&#34;&gt;map排序&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tips&#34;&gt;Tips&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;map定义&#34;&gt;map定义&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;map[Key]Value&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;key可以是bool、数字、string、指针、channel，也可以是包含这几种类型的接口、结构体、数组&lt;/li&gt;
+&lt;li&gt;key必须是支持==运算的类型。不支持slice、map、function&lt;/li&gt;
+&lt;li&gt;key避免使用浮点数。可能出现NaN或者浮点数不相等的情况。&lt;/li&gt;
+&lt;li&gt;Value值没有限制&lt;/li&gt;
+&lt;li&gt;key不能重复&lt;/li&gt;
+&lt;li&gt;key是无序的&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
     <item>
       <title>Go（六）数组&amp;切片</title>
       <link>https://earchou123.github.io/post/go6/</link>
@@ -45,7 +79,6 @@
 &lt;li&gt;&lt;a href=&#34;#%E7%BB%83%E4%B9%A0&#34;&gt;练习&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97&#34;&gt;斐波那契数列&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8%E5%86%85%E7%BD%AEsort%E5%AF%B9%E6%95%B0%E7%BB%84%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F&#34;&gt;使用内置sort对数组进行排序&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
