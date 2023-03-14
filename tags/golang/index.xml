@@ -6,7 +6,34 @@
     <description>Recent content in golang on Zerlinda‘s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Mar 2023 18:16:50 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2023 18:17:15 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go（八）struct结构体</title>
+      <link>https://earchou123.github.io/post/go8/</link>
+      <pubDate>Thu, 09 Mar 2023 18:17:15 +0800</pubDate>
+      
+      <guid>https://earchou123.github.io/post/go8/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9A%E4%B9%89&#34;&gt;结构体定义&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80&#34;&gt;结构体的内存布局&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E6%AF%94%E8%BE%83&#34;&gt;结构体的比较&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E8%BD%AC%E6%8D%A2&#34;&gt;结构体的转换&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%B5%8C%E5%A5%97%E5%92%8C%E5%8C%BF%E5%90%8D%E6%88%90%E5%91%98&#34;&gt;结构体的嵌套和匿名成员&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tips&#34;&gt;Tips&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;结构体定义&#34;&gt;结构体定义&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;结构体是自定义数据，代表一类事物&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;结构体名称&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;字段&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;字段&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
     <item>
       <title>Go（七）Map</title>
       <link>https://earchou123.github.io/post/go7/</link>

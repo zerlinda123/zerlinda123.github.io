@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.111.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Go（八）struct结构体 &middot; Zerlinda‘s blog</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-0e ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://earchou123.github.io/"><h1>Zerlinda‘s blog</h1></a>
+      <p class="lead">
+       This is Zerlinda’s blog 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://earchou123.github.io/">Home</a> </li>
+        <li><a href="/post/"> Posts </a></li><li><a href="/tags/"> Tags </a></li><li><a href="/categories/"> Categories </a></li><li><a href="/about/"> About </a></li><li><a href="/welcome/"> Welcome </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Go（八）struct结构体</h1>
+  <time datetime=2023-03-09T18:17:15&#43;0800 class="post-date">Thu, Mar 9, 2023</time>
+  <!-- raw HTML omitted -->
+<ul>
+<li><a href="#%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9A%E4%B9%89">结构体定义</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80">结构体的内存布局</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E6%AF%94%E8%BE%83">结构体的比较</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E8%BD%AC%E6%8D%A2">结构体的转换</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%B5%8C%E5%A5%97%E5%92%8C%E5%8C%BF%E5%90%8D%E6%88%90%E5%91%98">结构体的嵌套和匿名成员</a></li>
+<li><a href="#tips">Tips</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="结构体定义">结构体定义</h2>
+<ul>
+<li>结构体是自定义数据，代表一类事物</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#960050;background-color:#1e0010">结构体名称</span> <span style="color:#66d9ef">struct</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">字段</span><span style="color:#ae81ff">1</span> <span style="color:#66d9ef">type</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">字段</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">type</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>结构体字段 = 属性</li>
+<li>字段可以是基本数据类型、数组、引用类型</li>
+<li>结构体是值类型</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">struct</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Age</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>结构体声明</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Age</span>  <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cat1</span> <span style="color:#a6e22e">Cat</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cat1</span>.<span style="color:#a6e22e">Name</span> = <span style="color:#e6db74">&#34;miaomiao&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cat1</span>.<span style="color:#a6e22e">Age</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cat2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Cat</span>{<span style="color:#e6db74">&#34;haha&#34;</span>, <span style="color:#ae81ff">2</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cat3</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Cat</span> = new(<span style="color:#a6e22e">Cat</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">cat3</span>).<span style="color:#a6e22e">Name</span> = <span style="color:#e6db74">&#34;xixi&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cat3</span>.<span style="color:#a6e22e">Name</span> = <span style="color:#e6db74">&#34;xixihaha&#34;</span> <span style="color:#75715e">//go程序设计者为了方便，cat3.Name 等同于（*cat3).Name
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cat4</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Cat</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Cat</span>{}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cat4</span>.<span style="color:#a6e22e">Name</span> = <span style="color:#e6db74">&#34;heihei&#34;</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">cat4</span>).<span style="color:#a6e22e">Age</span> = <span style="color:#ae81ff">4</span>
+</span></span></code></pre></div><ul>
+<li>后两种声明方式返回结构体指针。</li>
+<li>go编译器底层对cat3.Name做了转化，等同于（*cat3).Name</li>
+</ul>
+<h2 id="结构体的内存布局">结构体的内存布局</h2>
+<ul>
+<li>结构体的所有字段在内存中是连续的</li>
+<li>参考<a href="https://www.liwenzhou.com/posts/Go/struct-memory-layout/">https://www.liwenzhou.com/posts/Go/struct-memory-layout/</a></li>
+</ul>
+<h2 id="结构体的比较">结构体的比较</h2>
+<ul>
+<li>如果结构体的全部成员都是可以进行比较的，那么结构体也是可以进行比较的</li>
+</ul>
+<h2 id="结构体的转换">结构体的转换</h2>
+<ul>
+<li>结构体和其他类型进行转换时，需要有完全相同的字段（名字、个数、类型）</li>
+</ul>
+<h2 id="结构体的嵌套和匿名成员">结构体的嵌套和匿名成员</h2>
+<ul>
+<li>只声明数据类型，不指名成员名字，称为匿名成员</li>
+<li>匿名成员数据是类型必须是命名的类型或者指向一个命名类型的指针。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Point</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">X</span>, <span style="color:#a6e22e">Y</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Circle</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Point</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Radius</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">wheel</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Circle</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Spokes</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">w</span> <span style="color:#a6e22e">wheel</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">X</span> = <span style="color:#ae81ff">1</span>  <span style="color:#75715e">// 匿名属性直接访问，等同于 w.Circle.Point.X = 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Y</span> = <span style="color:#ae81ff">2</span>  <span style="color:#75715e">// 匿名属性直接访问，等同于 w.Circle.Point.Y = 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Radius</span> = <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Spokes</span> = <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">w</span>)
+</span></span></code></pre></div><ul>
+<li>结构体字面值暂没有表示简短匿名的语法，以下不能编译通过</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">w</span> = <span style="color:#a6e22e">Wheel</span>{<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">20</span>}                       <span style="color:#75715e">// compile error: unknown fields
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">w</span> = <span style="color:#a6e22e">Wheel</span>{<span style="color:#a6e22e">X</span>: <span style="color:#ae81ff">8</span>, <span style="color:#a6e22e">Y</span>: <span style="color:#ae81ff">8</span>, <span style="color:#a6e22e">Radius</span>: <span style="color:#ae81ff">5</span>, <span style="color:#a6e22e">Spokes</span>: <span style="color:#ae81ff">20</span>} <span style="color:#75715e">// compile error: unknown fields
+</span></span></span></code></pre></div><ul>
+<li>以下遵循形状类声明时的结构</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">w</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Wheel</span>{<span style="color:#a6e22e">Circle</span>{<span style="color:#a6e22e">Point</span>{<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">8</span>}, <span style="color:#ae81ff">10</span>}, <span style="color:#ae81ff">20</span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">w</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">w2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Wheel</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Circle</span>: <span style="color:#a6e22e">Circle</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">Point</span>:  <span style="color:#a6e22e">Point</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>},
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">Radius</span>: <span style="color:#ae81ff">5</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Spokes</span>: <span style="color:#ae81ff">8</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">w2</span>)
+</span></span></code></pre></div><h2 id="tips">Tips</h2>
+<ul>
+<li>结构体类型的零值，是每个成员都是零值。</li>
+<li>空结构体是不占空间的</li>
+<li>结构体的变量可以进行取地址&amp;c.Name</li>
+<li>结构体进行type重新定义相当于取别名，golang认为是新的数据类型，但是可以互相强制转换</li>
+<li>结构体变量名以大写字母开头，为公有变量，可以被外部引用。小写为私有变量。</li>
+<li>结构体的每个字段可以写上一个tag，该tag可以通过反射机制获取。常见如果序列化和反序列化</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;name&#34;`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Age</span>  <span style="color:#66d9ef">int</span>    <span style="color:#e6db74">`json:&#34;age&#34;`</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cat</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Cat</span>{<span style="color:#e6db74">&#34;haha&#34;</span>, <span style="color:#ae81ff">2</span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">cat</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">jsonStr</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">cat</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;json错误&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;jsonStr&#34;</span>, string(<span style="color:#a6e22e">jsonStr</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//jsonStr {&#34;name&#34;:&#34;haha&#34;,&#34;age&#34;:2}
+</span></span></span></code></pre></div>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
