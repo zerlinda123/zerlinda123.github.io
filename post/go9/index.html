@@ -117,12 +117,75 @@
 </ul>
 <h2 id="练习">练习</h2>
 <h3 id="定义计算器结构体calcuator实现加减乘除">定义计算器结构体Calcuator，实现加减乘除</h3>
-<p>搬砖中。。</p>
-<h3 id="编写方法使给定的二维数组33转置">编写方法，使给定的二维数组（3*3）转置。</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Calcuator</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">float64</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Calcuator</span>) <span style="color:#a6e22e">cal</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">switch</span> <span style="color:#a6e22e">s</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;+&#34;</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">res</span> = <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;-&#34;</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">res</span> = <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;*&#34;</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">res</span> = <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;/&#34;</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">res</span> = <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;符号[ %v ]输入错误 \n&#34;</span>, <span style="color:#a6e22e">s</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Calcuator</span>) <span style="color:#a6e22e">getSum</span>() <span style="color:#66d9ef">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">c</span> <span style="color:#a6e22e">Calcuator</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">a</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">b</span> = <span style="color:#ae81ff">23</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%v%v%v=%v\n&#34;</span>, <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">cal</span>(<span style="color:#a6e22e">s</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="编写方法使给定的二维数组33转置">编写方法，使给定的二维数组（3*3）转置。</h3>
 <pre tabindex="0"><code class="language-dotnetcli" data-lang="dotnetcli">1 2 3       1 4 7
 4 5 6  --&gt;  2 5 8
 7 8 9       3 6 9
-</code></pre><p>搬砖中。。。</p>
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Arr2D</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">arr</span> [][]<span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">arr2D</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Arr2D</span>) <span style="color:#a6e22e">change</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">arr2D</span>.<span style="color:#a6e22e">arr</span>) <span style="color:#f92672">!=</span> len(<span style="color:#a6e22e">arr2D</span>.<span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>]) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;请传入n*n的数组&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//新建切片，以原来的切片长度为长度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">new_arr2D</span> <span style="color:#f92672">:=</span> make([][]<span style="color:#66d9ef">int</span>, len(<span style="color:#a6e22e">arr2D</span>.<span style="color:#a6e22e">arr</span>)) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">arr2D</span>.<span style="color:#a6e22e">arr</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">j</span> &lt; len(<span style="color:#a6e22e">arr2D</span>.<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]); <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">//切片需要先make，再使用，如果为nil则make
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">new_arr2D</span>[<span style="color:#a6e22e">j</span>] <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> { 
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">new_arr2D</span>[<span style="color:#a6e22e">j</span>] = make([]<span style="color:#66d9ef">int</span>, len(<span style="color:#a6e22e">arr2D</span>.<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]))
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">//交换n*n切片的坐标
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#a6e22e">new_arr2D</span>[<span style="color:#a6e22e">j</span>][<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">arr2D</span>.<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>] 
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//赋值给原来的切片
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">arr2D</span>.<span style="color:#a6e22e">arr</span> = <span style="color:#a6e22e">new_arr2D</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">Arr2D</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">arr</span> = [][]<span style="color:#66d9ef">int</span>{{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>}, {<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>}, {<span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>}}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">change</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>)
+</span></span></code></pre></div>
 </div>
 
 
