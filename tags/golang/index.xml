@@ -6,7 +6,27 @@
     <description>Recent content in golang on Zerlinda‘s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Mar 2023 18:17:27 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2023 18:17:35 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go defer</title>
+      <link>https://earchou123.github.io/post/go11/</link>
+      <pubDate>Thu, 09 Mar 2023 18:17:35 +0800</pubDate>
+      
+      <guid>https://earchou123.github.io/post/go11/</guid>
+      <description>&lt;h2 id=&#34;defer官网解释&#34;&gt;defer官网解释&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://go.dev/ref/spec#Defer_statements&#34;&gt;https://go.dev/ref/spec#Defer_statements&lt;/a&gt; .&lt;br&gt;
+&lt;code&gt;DeferStmt = &amp;quot;defer&amp;quot; Expression .&lt;/code&gt; .&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;总结：&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;defer延迟执行，会在周围函数执行完之前执行&lt;/li&gt;
+&lt;li&gt;defer表达式必须是函数或方法调用&lt;/li&gt;
+&lt;li&gt;每一次调用defer都会把周围函数的值、参数进行赋值和重新存储一遍，但实际的函数不会被执行&lt;/li&gt;
+&lt;li&gt;defer语句执行按照先进后出的顺序&lt;/li&gt;
+&lt;li&gt;如果函数设置了return语句，defer会在执行return语句赋值（此处return赋值但不执行）之后，再执行。但会在函数结束之前执行&lt;/li&gt;
+&lt;li&gt;如果defer是一个匿名函数，且周围函数的返回值有一个命名的变量，defer可以在匿名函数中修改和返回周围函数的返回值&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
     <item>
       <title>Go（十）函数</title>
       <link>https://earchou123.github.io/post/go10/</link>
@@ -25,6 +45,7 @@
 &lt;li&gt;&lt;a href=&#34;#%E9%97%AD%E5%8C%85&#34;&gt;闭包&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E5%87%BD%E6%95%B0%E7%9A%84defer&#34;&gt;函数的defer&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E6%97%B6%E9%97%B4%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0&#34;&gt;时间相关函数&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0&#34;&gt;内置函数&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86-defer-panic-recover&#34;&gt;错误处理 defer panic recover&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E7%BB%83%E4%B9%A0&#34;&gt;练习&lt;/a&gt;
 &lt;ul&gt;
@@ -58,6 +79,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E5%AE%9A%E4%B9%89%E8%AE%A1%E7%AE%97%E5%99%A8%E7%BB%93%E6%9E%84%E4%BD%93calcuator%E5%AE%9E%E7%8E%B0%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4&#34;&gt;定义计算器结构体Calcuator，实现加减乘除&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E7%BC%96%E5%86%99%E6%96%B9%E6%B3%95%E4%BD%BF%E7%BB%99%E5%AE%9A%E7%9A%84%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%8433%E8%BD%AC%E7%BD%AE&#34;&gt;编写方法，使给定的二维数组（3*3）转置。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E9%98%85%E8%AF%BB%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81%E5%86%99%E5%87%BA%E6%89%93%E5%8D%B0%E7%BB%93%E6%9E%9C&#34;&gt;阅读以下代码，写出打印结果&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
