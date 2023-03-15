@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.111.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Go（十）函数 &middot; Zerlinda‘s blog</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-0e ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://earchou123.github.io/"><h1>Zerlinda‘s blog</h1></a>
+      <p class="lead">
+       This is Zerlinda’s blog 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://earchou123.github.io/">Home</a> </li>
+        <li><a href="/post/"> Posts </a></li><li><a href="/tags/"> Tags </a></li><li><a href="/categories/"> Categories </a></li><li><a href="/about/"> About </a></li><li><a href="/welcome/"> Welcome </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Go（十）函数</h1>
+  <time datetime=2023-03-09T18:17:27&#43;0800 class="post-date">Thu, Mar 9, 2023</time>
+  <!-- raw HTML omitted -->
+<ul>
+<li><a href="#%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89">函数定义</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92">参数传递</a></li>
+<li><a href="#%E4%BD%9C%E7%94%A8%E5%9F%9F">作用域</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E7%9A%84%E9%80%92%E5%BD%92">函数的递归</a></li>
+<li><a href="#%E5%8C%85">包</a></li>
+<li><a href="#init%E5%87%BD%E6%95%B0">init函数</a></li>
+<li><a href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0">匿名函数</a></li>
+<li><a href="#%E9%97%AD%E5%8C%85">闭包</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E7%9A%84defer">函数的defer</a></li>
+<li><a href="#%E6%97%B6%E9%97%B4%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0">时间相关函数</a></li>
+<li><a href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86-defer-panic-recover">错误处理 defer panic recover</a></li>
+<li><a href="#%E7%BB%83%E4%B9%A0">练习</a>
+<ul>
+<li><a href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97">斐波那契数列👇</a></li>
+<li><a href="#%E7%8C%B4%E5%AD%90%E5%90%83%E6%A1%83%E9%97%AE%E9%A2%98%E9%80%92%E5%BD%92">猴子吃桃问题（递归）</a></li>
+<li><a href="#makesuffixsuffix-string%E9%97%AD%E5%8C%85">makeSuffixsuffix string闭包</a></li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="函数定义">函数定义</h2>
+<p>完成某一功能的程序指令的集合</p>
+<pre tabindex="0"><code class="language-dotnetcli" data-lang="dotnetcli">func 函数名(形参列表)(返回值列表){
+    执行语句
+    return 返回值列表
+}
+</code></pre><p>return语句可以省略，也可以返回多个值。</p>
+<h2 id="参数传递">参数传递</h2>
+<ul>
+<li>值传递：拷贝副本</li>
+<li>引用传递：拷贝地址。效率高，数据量小。</li>
+<li>值类型：基本数据类型int系列，float、bool、string、数组、struct</li>
+<li>引用类型：指针、切片、map、管道chan、interface</li>
+</ul>
+<h2 id="作用域">作用域</h2>
+<ul>
+<li>函数内部声明的变量叫局部变量，作用域仅限于函数内部。</li>
+<li>函数外声明的叫全局变量，作用域再整个包有效。如果首字母大写，则作用域在整个程序有效</li>
+</ul>
+<h2 id="函数的递归">函数的递归</h2>
+<p>一个函数调用自己，称为递归。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">test01</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> &gt; <span style="color:#ae81ff">2</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">n</span><span style="color:#f92672">--</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">test01</span>(<span style="color:#a6e22e">n</span>)
+</span></span><span style="display:flex;"><span>	} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;n&lt;2,n=%v\n&#34;</span>, <span style="color:#a6e22e">n</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">test01</span>(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>递归函数的局部变量是独立的，不会互相影响</li>
+<li>递归有终止条件</li>
+</ul>
+<h2 id="包">包</h2>
+<ul>
+<li>区分相同名字的函数、变量等标志符</li>
+<li>当文件很多时可以很好的管理项目</li>
+<li>控制函数变量等作用域</li>
+<li>包名一般用小写字母</li>
+<li>导入 <code>import &quot;包路径&quot;</code></li>
+</ul>
+<pre tabindex="0"><code class="language-dotnetcli" data-lang="dotnetcli">demo
+ - main
+    - main.go
+ - utils
+    - utils.go
+</code></pre><p>utils.go</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">utils</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Add</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>main.go</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;demo/utils&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>包名支持取别名。取了别名则需要使用别名来访问函数和变量</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">u</span> <span style="color:#e6db74">&#34;go-learning/utils&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">u</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="init函数">init函数</h2>
+<p>每个源文件都可以包含一个init函数，会在main函数之前被调用。可以用来完成一些初始化工作。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;call init ..&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;call main...&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>call init ..
+</span></span><span style="display:flex;"><span>call main...
+</span></span></code></pre></div><h2 id="匿名函数">匿名函数</h2>
+<p>定义时就直接调用，只能调用一次</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span>}(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">res</span>)
+</span></span></code></pre></div><h2 id="闭包">闭包</h2>
+<p>一个函数和与其相关的引用环境组成的一个整体</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">AddUpper</span>() <span style="color:#66d9ef">func</span>(<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">n</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">i</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">f</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">AddUpper</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">f</span>(<span style="color:#ae81ff">1</span>)) <span style="color:#75715e">//11
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">f</span>(<span style="color:#ae81ff">2</span>)) <span style="color:#75715e">//13
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><ul>
+<li>返回一个匿名函数，引用到函数外的变量n</li>
+<li><code>f := AddUpper()</code>初始化n，仅生成一次</li>
+<li>闭包可以返回上次引用的某值</li>
+</ul>
+<h2 id="函数的defer">函数的defer</h2>
+<p>defer，用于函数执行完，及时释放资源。如数据库连接、文件句柄、文件锁等</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;n1=%v\n&#34;</span>, <span style="color:#a6e22e">n1</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;n2=%v\n&#34;</span>, <span style="color:#a6e22e">n2</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">n1</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">n2</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">n1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">n2</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;n1=%v,n2=%v,res=%v\n&#34;</span>, <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">res</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">sum</span>(<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>n1=<span style="color:#ae81ff">7</span>,n2=<span style="color:#ae81ff">61</span>,res=<span style="color:#ae81ff">68</span>
+</span></span><span style="display:flex;"><span>n2=<span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>n1=<span style="color:#ae81ff">6</span>
+</span></span></code></pre></div><ul>
+<li>defer不会立刻执行，而是将defer后的语句压入一个栈，然后继续执行下一个函数语句。</li>
+<li>函数执行完，从defer的栈中，依次从栈顶取出执行（先入后出原则）</li>
+<li>defer语句入栈，也会将相关的值拷贝入栈。</li>
+</ul>
+<h2 id="时间相关函数">时间相关函数</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">now</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">str</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%d-%d-%d %d:%d:%d&#34;</span>, <span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">Year</span>(), <span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">Month</span>(), <span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">Day</span>(), <span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">Hour</span>(), <span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">Minute</span>(), <span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">Second</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">str</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">Format</span>(<span style="color:#e6db74">&#34;2006-01-02 15:04:05&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">Format</span>(<span style="color:#e6db74">&#34;2006-01-02&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;单位秒Unix:%v\n&#34;</span>, <span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">Unix</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;单位纳秒UnixNano:%v\n&#34;</span>,<span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">UnixNano</span>())
+</span></span></code></pre></div><p><code>2006-01-02 15:04:05</code>字符串数固定的</p>
+<h2 id="错误处理-defer-panic-recover">错误处理 defer panic recover</h2>
+<p>默认情况下，程序发生错误（panic）之后，就会退出。发生错误之后，可以捕获错误，进行处理，保证程序可以继续运行。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">div</span>(<span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span> <span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> recover()
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;err=%v\n&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;发送告警邮件给管理员。。&#34;</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">n1</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">n2</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%v/%v=%v\n&#34;</span>, <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">res</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">div</span>(<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>自定义错误</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;errors&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">readConf</span>(<span style="color:#a6e22e">name</span> <span style="color:#66d9ef">string</span>) (<span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;config.ini&#34;</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;读取配置文件错误。。&#34;</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">readConf</span>(<span style="color:#e6db74">&#34;test&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;err=%v\n&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="练习">练习</h2>
+<h3 id="斐波那契数列">斐波那契数列👇</h3>
+<p>1,1,2,3,5,8,13,21,34,55&hellip;. <br>
+第一个数和第二个数为1,第三个数开始为前面两个数的和。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">fbn</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fbn</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">fbn</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">fbn</span>(<span style="color:#ae81ff">10</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="猴子吃桃问题递归">猴子吃桃问题（递归）</h3>
+<p>有一堆桃子，猴子第一天吃了其中的一半，并且多吃了一个。以后猴子每天都吃其中的一半，再多吃一个。当到第十天时，发现只有一个桃子了。<br>
+问题：最初总共有多少个桃子？</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">peach</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">n</span> &gt; <span style="color:#ae81ff">10</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;输入天数不对，仅支持1 ~ 10&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> (<span style="color:#a6e22e">peach</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">peach</span>(<span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="makesuffixsuffix-string闭包">makeSuffix(suffix string)闭包</h3>
+<ul>
+<li>接收一个文件名，并返回一个闭包</li>
+<li>调用闭包传入一个文件名，如果该文件名没有指定的后缀（如.jpg），则返回&quot;文件名.jpg&quot;，如已经有后缀，则返回原文件名</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeSuffix</span>(<span style="color:#a6e22e">suffix</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">func</span>(<span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">filename</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">HasSuffix</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">suffix</span>) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">filename</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">filename</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">suffix</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">makeSuffix</span>(<span style="color:#e6db74">&#34;.jpg&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">m</span>(<span style="color:#e6db74">&#34;111&#34;</span>))   <span style="color:#75715e">//111.jpg
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">m</span>(<span style="color:#e6db74">&#34;test.jpg&#34;</span>))  <span style="color:#75715e">// test.jpg
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

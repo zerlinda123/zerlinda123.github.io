@@ -6,7 +6,44 @@
     <description>Recent content in notes on Zerlinda‘s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Mar 2023 18:17:22 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2023 18:17:27 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go（十）函数</title>
+      <link>https://earchou123.github.io/post/go10/</link>
+      <pubDate>Thu, 09 Mar 2023 18:17:27 +0800</pubDate>
+      
+      <guid>https://earchou123.github.io/post/go10/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89&#34;&gt;函数定义&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92&#34;&gt;参数传递&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BD%9C%E7%94%A8%E5%9F%9F&#34;&gt;作用域&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%87%BD%E6%95%B0%E7%9A%84%E9%80%92%E5%BD%92&#34;&gt;函数的递归&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8C%85&#34;&gt;包&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#init%E5%87%BD%E6%95%B0&#34;&gt;init函数&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0&#34;&gt;匿名函数&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E9%97%AD%E5%8C%85&#34;&gt;闭包&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%87%BD%E6%95%B0%E7%9A%84defer&#34;&gt;函数的defer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%97%B6%E9%97%B4%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0&#34;&gt;时间相关函数&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86-defer-panic-recover&#34;&gt;错误处理 defer panic recover&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BB%83%E4%B9%A0&#34;&gt;练习&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97&#34;&gt;斐波那契数列👇&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%8C%B4%E5%AD%90%E5%90%83%E6%A1%83%E9%97%AE%E9%A2%98%E9%80%92%E5%BD%92&#34;&gt;猴子吃桃问题（递归）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#makesuffixsuffix-string%E9%97%AD%E5%8C%85&#34;&gt;makeSuffixsuffix string闭包&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;函数定义&#34;&gt;函数定义&lt;/h2&gt;
+&lt;p&gt;完成某一功能的程序指令的集合&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-dotnetcli&#34; data-lang=&#34;dotnetcli&#34;&gt;func 函数名(形参列表)(返回值列表){
+    执行语句
+    return 返回值列表
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;return语句可以省略，也可以返回多个值。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Go（九）方法</title>
       <link>https://earchou123.github.io/post/go9/</link>
