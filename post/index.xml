@@ -8,7 +8,7 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Mar 2023 18:17:35 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>go defer</title>
+      <title>Go（十一） defer</title>
       <link>https://earchou123.github.io/post/go11/</link>
       <pubDate>Thu, 09 Mar 2023 18:17:35 +0800</pubDate>
       
@@ -23,7 +23,7 @@
 &lt;li&gt;每一次调用defer都会把周围函数的值、参数进行赋值和重新存储一遍，但实际的函数不会被执行&lt;/li&gt;
 &lt;li&gt;defer语句执行按照先进后出的顺序&lt;/li&gt;
 &lt;li&gt;如果函数设置了return语句，defer会在执行return语句赋值（此处return赋值但不执行）之后，再执行。但会在函数结束之前执行&lt;/li&gt;
-&lt;li&gt;如果defer是一个匿名函数，且周围函数的返回值有一个命名的变量，defer可以在匿名函数中修改和返回周围函数的返回值&lt;/li&gt;
+&lt;li&gt;如果defer是一个匿名函数，且周围函数的返回值有一个命名的变量，defer可以在匿名函数中修改和访问周围函数的返回值&lt;/li&gt;
 &lt;/ol&gt;</description>
     </item>
     

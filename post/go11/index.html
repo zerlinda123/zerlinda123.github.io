@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>go defer &middot; Zerlinda‘s blog</title>
+  <title>Go（十一） defer &middot; Zerlinda‘s blog</title>
   <meta name="description" content="" />
 
   
@@ -50,7 +50,7 @@
 
     <main class="content container">
     <div class="post">
-  <h1>go defer</h1>
+  <h1>Go（十一） defer</h1>
   <time datetime=2023-03-09T18:17:35&#43;0800 class="post-date">Thu, Mar 9, 2023</time>
   <h2 id="defer官网解释">defer官网解释</h2>
 <p><a href="https://go.dev/ref/spec#Defer_statements">https://go.dev/ref/spec#Defer_statements</a> .<br>
@@ -62,7 +62,7 @@
 <li>每一次调用defer都会把周围函数的值、参数进行赋值和重新存储一遍，但实际的函数不会被执行</li>
 <li>defer语句执行按照先进后出的顺序</li>
 <li>如果函数设置了return语句，defer会在执行return语句赋值（此处return赋值但不执行）之后，再执行。但会在函数结束之前执行</li>
-<li>如果defer是一个匿名函数，且周围函数的返回值有一个命名的变量，defer可以在匿名函数中修改和返回周围函数的返回值</li>
+<li>如果defer是一个匿名函数，且周围函数的返回值有一个命名的变量，defer可以在匿名函数中修改和访问周围函数的返回值</li>
 </ol>
 <h3 id="例子1">例子1</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">f1</span>(<span style="color:#a6e22e">result</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
