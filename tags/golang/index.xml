@@ -6,7 +6,36 @@
     <description>Recent content in golang on Zerlinda‘s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Mar 2023 18:17:35 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2023 18:17:40 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go（十二）面向对象编程</title>
+      <link>https://earchou123.github.io/post/go12/</link>
+      <pubDate>Thu, 09 Mar 2023 18:17:40 +0800</pubDate>
+      
+      <guid>https://earchou123.github.io/post/go12/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1&#34;&gt;面向对象&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F&#34;&gt;工厂模式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7-%E5%B0%81%E8%A3%85&#34;&gt;面向对象三大特性-封装&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7-%E7%BB%A7%E6%89%BF&#34;&gt;面向对象三大特性-继承&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7-%E5%A4%9A%E6%80%81&#34;&gt;面向对象三大特性-多态&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%8E%A5%E5%8F%A3%E5%AE%9A%E4%B9%89&#34;&gt;接口定义&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E5%A4%9A%E6%80%81&#34;&gt;接口实现多态&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%A9%BA%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BA%94%E7%94%A8&#34;&gt;空接口的应用&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;面向对象&#34;&gt;面向对象&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;go没有class，可以通过结构体自定义数据类型，来代表一类事物&lt;/li&gt;
+&lt;li&gt;结构体变量是具体的，代表一个具体变量&lt;/li&gt;
+&lt;li&gt;结构体字段 = 属性&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
     <item>
       <title>Go（十一） defer</title>
       <link>https://earchou123.github.io/post/go11/</link>
