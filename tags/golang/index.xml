@@ -6,7 +6,40 @@
     <description>Recent content in golang on Zerlinda‘s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Mar 2023 18:17:40 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2023 18:17:47 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go（十三）文件操作</title>
+      <link>https://earchou123.github.io/post/go13/</link>
+      <pubDate>Thu, 09 Mar 2023 18:17:47 +0800</pubDate>
+      
+      <guid>https://earchou123.github.io/post/go13/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C&#34;&gt;文件操作&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6&#34;&gt;读取文件&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#osread%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6&#34;&gt;os.Read读取文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8bufio%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6&#34;&gt;使用bufio读取文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8ioutil%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6&#34;&gt;使用ioutil读取文件&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6&#34;&gt;写入文件&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#oswrite%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6&#34;&gt;os.Write写入文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8bufio%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6&#34;&gt;使用bufio写入文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8ioutil%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6&#34;&gt;使用ioutil写入文件&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%96%87%E4%BB%B6copy&#34;&gt;文件copy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;文件操作&#34;&gt;文件操作&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;文件在程序中是以流的形式来操作的&lt;/li&gt;
+&lt;li&gt;os.File封装所有文件操作&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
     <item>
       <title>Go（十二）面向对象编程</title>
       <link>https://earchou123.github.io/post/go12/</link>
