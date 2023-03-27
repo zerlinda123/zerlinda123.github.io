@@ -8,6 +8,42 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Mar 2023 18:17:54 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Go（十五）反射</title>
+      <link>https://earchou123.github.io/post/go15/</link>
+      <pubDate>Thu, 09 Mar 2023 18:17:54 +0800</pubDate>
+      
+      <guid>https://earchou123.github.io/post/go15/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8F%8D%E5%B0%84&#34;&gt;反射&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BC%BA%E7%82%B9&#34;&gt;缺点&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8F%8D%E5%B0%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C&#34;&gt;反射基本操作&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BB%93%E6%9E%84%E4%BD%93%E5%8F%8D%E5%B0%84&#34;&gt;结构体反射&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BB%93%E6%9E%84%E4%BD%93%E9%81%8D%E5%8E%86&#34;&gt;结构体遍历&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E7%BB%93%E6%9E%84%E4%BD%93%E6%96%B9%E6%B3%95&#34;&gt;结构体方法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;反射&#34;&gt;反射&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;可以动态获取变量值、类型&lt;/li&gt;
+&lt;li&gt;如果是结构题，可以获取结构体本身的信息（字段、方法）&lt;/li&gt;
+&lt;li&gt;可以修改变量的值，调用关联的方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;缺点&#34;&gt;缺点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;反射错误类型活在运行时才引发panic&lt;/li&gt;
+&lt;li&gt;大量使用反射代码难以理解&lt;/li&gt;
+&lt;li&gt;反射性能低，基于反射实现的代码运行速度要慢些&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>Go（十四）goroutine&amp;channel</title>
       <link>https://earchou123.github.io/post/go14/</link>
       <pubDate>Thu, 09 Mar 2023 18:17:54 +0800</pubDate>

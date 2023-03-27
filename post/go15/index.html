@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.111.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Go（十五）反射 &middot; Zerlinda‘s blog</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://earchou123.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-0e ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://earchou123.github.io/"><h1>Zerlinda‘s blog</h1></a>
+      <p class="lead">
+       This is Zerlinda’s blog 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://earchou123.github.io/">Home</a> </li>
+        <li><a href="/post/"> Posts </a></li><li><a href="/tags/"> Tags </a></li><li><a href="/categories/"> Categories </a></li><li><a href="/about/"> About </a></li><li><a href="/welcome/"> Welcome </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Go（十五）反射</h1>
+  <time datetime=2023-03-09T18:17:54&#43;0800 class="post-date">Thu, Mar 9, 2023</time>
+  <!-- raw HTML omitted -->
+<ul>
+<li><a href="#%E5%8F%8D%E5%B0%84">反射</a>
+<ul>
+<li><a href="#%E7%BC%BA%E7%82%B9">缺点</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%8D%E5%B0%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C">反射基本操作</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E4%BD%93%E5%8F%8D%E5%B0%84">结构体反射</a>
+<ul>
+<li><a href="#%E7%BB%93%E6%9E%84%E4%BD%93%E9%81%8D%E5%8E%86">结构体遍历</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%96%B9%E6%B3%95">结构体方法</a></li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="反射">反射</h2>
+<ul>
+<li>可以动态获取变量值、类型</li>
+<li>如果是结构题，可以获取结构体本身的信息（字段、方法）</li>
+<li>可以修改变量的值，调用关联的方法</li>
+</ul>
+<h3 id="缺点">缺点</h3>
+<ul>
+<li>反射错误类型活在运行时才引发panic</li>
+<li>大量使用反射代码难以理解</li>
+<li>反射性能低，基于反射实现的代码运行速度要慢些</li>
+</ul>
+<h2 id="反射基本操作">反射基本操作</h2>
+<p>reflect.TypeOf()或者值、类型</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;reflect&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">reflectType</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">interface</span>{}) {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 不知道函数调用时，会传进来什么类型的参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// 方法1.类型断言
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// 方法2. 反射
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">obj</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// fmt.Printf(&#34;obj type=%T,\tobj=%v\n&#34;, obj, obj)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;obj=%v\t obj.Name=%v\t obj.Kind=%v\n&#34;</span>, <span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">Name</span>(), <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">Kind</span>())
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">struct</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">float32</span> = <span style="color:#ae81ff">1.23</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">reflectType</span>(<span style="color:#a6e22e">a</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">reflectType</span>(<span style="color:#a6e22e">b</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">c</span> <span style="color:#a6e22e">Cat</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">reflectType</span>(<span style="color:#a6e22e">c</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">e</span> []<span style="color:#66d9ef">int</span> <span style="color:#75715e">// array slice map,指针等获取的到的.Name为空
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">reflectType</span>(<span style="color:#a6e22e">e</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>获取值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">reflectValue</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">interface</span>{}) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">ValueOf</span>(<span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;type=%T\tv=%v\n&#34;</span>, <span style="color:#a6e22e">v</span>, <span style="color:#a6e22e">v</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">k</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Kind</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;v.Kind()=%v\n&#34;</span>, <span style="color:#a6e22e">k</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 如果传入的是int类型，转换为float
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">switch</span> <span style="color:#a6e22e">k</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">Int</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">ret</span> <span style="color:#f92672">:=</span> float32(<span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Int</span>())
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;type=%T\tret=%v\n&#34;</span>, <span style="color:#a6e22e">ret</span>, <span style="color:#a6e22e">ret</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">aa</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">123</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">reflectValue</span>(<span style="color:#a6e22e">aa</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>设置值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">refletSetValue</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">interface</span>{}) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">ValueOf</span>(<span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Elem用来根据指针取值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">k</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Elem</span>().<span style="color:#a6e22e">Kind</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">switch</span> <span style="color:#a6e22e">k</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">Int</span>: <span style="color:#75715e">//如果传入int类型，值设置为100
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Elem</span>().<span style="color:#a6e22e">SetInt</span>(<span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bb</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">123</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">refletSetValue</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">bb</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">bb</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="结构体反射">结构体反射</h2>
+<h3 id="结构体遍历">结构体遍历</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;reflect&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">student</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Name</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;name&#34; ini:&#34;s_name&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Score</span> <span style="color:#66d9ef">int</span>    <span style="color:#e6db74">`json:&#34;score&#34; ini:&#34;s_score&#34;`</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">stu1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">student</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Name</span>:  <span style="color:#e6db74">&#34;wangcai&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Score</span>: <span style="color:#ae81ff">99</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">stu1</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;name:%v\t kind:%v\n&#34;</span>, <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Name</span>(), <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Kind</span>())
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 遍历结构体字段的所有字段
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">NumField</span>(); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">obj</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Field</span>(<span style="color:#a6e22e">i</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;name:%v\t type:%v\t tag.Get(\&#34;json\&#34;):%v\t tag:%v\n&#34;</span>, <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">Name</span>, <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">Type</span>, <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">Tag</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;json&#34;</span>), <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">Tag</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 根据名字取结构体中的字段
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fieldobj</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">FieldByName</span>(<span style="color:#e6db74">&#34;Score&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">ok</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;name:%v\t type:%v\t tag:%v\n&#34;</span>, <span style="color:#a6e22e">fieldobj</span>.<span style="color:#a6e22e">Name</span>, <span style="color:#a6e22e">fieldobj</span>.<span style="color:#a6e22e">Type</span>, <span style="color:#a6e22e">fieldobj</span>.<span style="color:#a6e22e">Tag</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>name:student     kind:struct
+</span></span><span style="display:flex;"><span>name:Name        type:string     tag.Get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;json&#34;</span><span style="color:#f92672">)</span>:name    tag:json:<span style="color:#e6db74">&#34;name&#34;</span> ini:<span style="color:#e6db74">&#34;s_name&#34;</span>
+</span></span><span style="display:flex;"><span>name:Score       type:int        tag.Get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;json&#34;</span><span style="color:#f92672">)</span>:score   tag:json:<span style="color:#e6db74">&#34;score&#34;</span> ini:<span style="color:#e6db74">&#34;s_score&#34;</span>
+</span></span><span style="display:flex;"><span>name:Score       type:int        tag:json:<span style="color:#e6db74">&#34;score&#34;</span> ini:<span style="color:#e6db74">&#34;s_score&#34;</span>
+</span></span></code></pre></div><h3 id="结构体方法">结构体方法</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;reflect&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">student</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Name</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;name&#34; ini:&#34;s_name&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Score</span> <span style="color:#66d9ef">int</span>    <span style="color:#e6db74">`json:&#34;score&#34; ini:&#34;s_score&#34;`</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">student</span>) <span style="color:#a6e22e">Study</span>() <span style="color:#66d9ef">string</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">msg</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;学生%s正在学习..\n&#34;</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Name</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">msg</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">student</span>) <span style="color:#a6e22e">Action</span>(<span style="color:#a6e22e">a</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">msg</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;学生%s正在%s..\n&#34;</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Name</span>, <span style="color:#a6e22e">a</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">msg</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">student</span>) <span style="color:#a6e22e">Sleep</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;学生%s正在睡觉..\n&#34;</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Name</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">printMethod</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">interface</span>{}) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">ValueOf</span>(<span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">NumMethod</span>(); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">methodType</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Method</span>(<span style="color:#a6e22e">i</span>).<span style="color:#a6e22e">Type</span>()
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;func:%s\t methodType:%s\n&#34;</span>, <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Method</span>(<span style="color:#a6e22e">i</span>).<span style="color:#a6e22e">Name</span>, <span style="color:#a6e22e">methodType</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">args</span> = []<span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">Value</span>{}      <span style="color:#75715e">// 参数为空// 如果获取不到该方法，会返回零值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Method</span>(<span style="color:#a6e22e">i</span>).<span style="color:#a6e22e">Name</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Action&#34;</span> { <span style="color:#75715e">// 如果不是零值，即该函数存在，则传入参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#a6e22e">args</span> = append(<span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">ValueOf</span>(<span style="color:#e6db74">&#34;吃饭&#34;</span>))
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Method</span>(<span style="color:#a6e22e">i</span>).<span style="color:#a6e22e">Call</span>(<span style="color:#a6e22e">args</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">stu1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">student</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Name</span>:  <span style="color:#e6db74">&#34;wangcai&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Score</span>: <span style="color:#ae81ff">99</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">printMethod</span>(<span style="color:#a6e22e">stu1</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>func:Action      methodType:func<span style="color:#f92672">(</span>string<span style="color:#f92672">)</span> string
+</span></span><span style="display:flex;"><span>学生wangcai正在吃饭..
+</span></span><span style="display:flex;"><span>func:Sleep       methodType:func<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>学生wangcai正在睡觉..
+</span></span><span style="display:flex;"><span>func:Study       methodType:func<span style="color:#f92672">()</span> string
+</span></span><span style="display:flex;"><span>学生wangcai正在学习..
+</span></span></code></pre></div>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
