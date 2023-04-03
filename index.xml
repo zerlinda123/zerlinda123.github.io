@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zerlinda‘s blog</title>
-    <link>https://zerlinda123.github.io/</link>
+    <link>https://earchou123.github.io/</link>
     <description>Recent content on Zerlinda‘s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Mar 2023 18:30:54 +0800</lastBuildDate><atom:link href="https://zerlinda123.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2023 18:30:54 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go（十六）TCP网络编程</title>
-      <link>https://zerlinda123.github.io/post/go16/</link>
+      <link>https://earchou123.github.io/post/go16/</link>
       <pubDate>Thu, 09 Mar 2023 18:30:54 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go16/</guid>
+      <guid>https://earchou123.github.io/post/go16/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E7%BD%91%E7%BB%9C%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B&#34;&gt;网络七层模型&lt;/a&gt;&lt;/li&gt;
@@ -44,10 +44,10 @@
     
     <item>
       <title>Go（十五）反射</title>
-      <link>https://zerlinda123.github.io/post/go15/</link>
+      <link>https://earchou123.github.io/post/go15/</link>
       <pubDate>Thu, 09 Mar 2023 18:17:54 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go15/</guid>
+      <guid>https://earchou123.github.io/post/go15/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E5%8F%8D%E5%B0%84&#34;&gt;反射&lt;/a&gt;
@@ -80,10 +80,10 @@
     
     <item>
       <title>Go（十四）goroutine&amp;channel</title>
-      <link>https://zerlinda123.github.io/post/go14/</link>
+      <link>https://earchou123.github.io/post/go14/</link>
       <pubDate>Thu, 09 Mar 2023 18:17:54 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go14/</guid>
+      <guid>https://earchou123.github.io/post/go14/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#goroutine&#34;&gt;goroutine&lt;/a&gt;
@@ -119,10 +119,10 @@
     
     <item>
       <title>Go（十三）文件操作</title>
-      <link>https://zerlinda123.github.io/post/go13/</link>
+      <link>https://earchou123.github.io/post/go13/</link>
       <pubDate>Thu, 09 Mar 2023 18:17:47 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go13/</guid>
+      <guid>https://earchou123.github.io/post/go13/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C&#34;&gt;文件操作&lt;/a&gt;&lt;/li&gt;
@@ -153,10 +153,10 @@
     
     <item>
       <title>Go（十二）面向对象编程</title>
-      <link>https://zerlinda123.github.io/post/go12/</link>
+      <link>https://earchou123.github.io/post/go12/</link>
       <pubDate>Thu, 09 Mar 2023 18:17:40 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go12/</guid>
+      <guid>https://earchou123.github.io/post/go12/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1&#34;&gt;面向对象&lt;/a&gt;&lt;/li&gt;
@@ -182,10 +182,10 @@
     
     <item>
       <title>Go（十一） defer</title>
-      <link>https://zerlinda123.github.io/post/go11/</link>
+      <link>https://earchou123.github.io/post/go11/</link>
       <pubDate>Thu, 09 Mar 2023 18:17:35 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go11/</guid>
+      <guid>https://earchou123.github.io/post/go11/</guid>
       <description>&lt;h2 id=&#34;defer官网解释&#34;&gt;defer官网解释&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://go.dev/ref/spec#Defer_statements&#34;&gt;https://go.dev/ref/spec#Defer_statements&lt;/a&gt; .&lt;br&gt;
 &lt;code&gt;DeferStmt = &amp;quot;defer&amp;quot; Expression .&lt;/code&gt; .&lt;/p&gt;
@@ -202,10 +202,10 @@
     
     <item>
       <title>Go（十）函数</title>
-      <link>https://zerlinda123.github.io/post/go10/</link>
+      <link>https://earchou123.github.io/post/go10/</link>
       <pubDate>Thu, 09 Mar 2023 18:17:27 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go10/</guid>
+      <guid>https://earchou123.github.io/post/go10/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89&#34;&gt;函数定义&lt;/a&gt;&lt;/li&gt;
@@ -240,10 +240,10 @@
     
     <item>
       <title>Go（九）方法</title>
-      <link>https://zerlinda123.github.io/post/go9/</link>
+      <link>https://earchou123.github.io/post/go9/</link>
       <pubDate>Thu, 09 Mar 2023 18:17:22 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go9/</guid>
+      <guid>https://earchou123.github.io/post/go9/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E6%96%B9%E6%B3%95%E5%AE%9A%E4%B9%89%E5%92%8C%E5%A3%B0%E6%98%8E&#34;&gt;方法定义和声明&lt;/a&gt;&lt;/li&gt;
@@ -267,10 +267,10 @@
     
     <item>
       <title>Go（八）struct结构体</title>
-      <link>https://zerlinda123.github.io/post/go8/</link>
+      <link>https://earchou123.github.io/post/go8/</link>
       <pubDate>Thu, 09 Mar 2023 18:17:15 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go8/</guid>
+      <guid>https://earchou123.github.io/post/go8/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9A%E4%B9%89&#34;&gt;结构体定义&lt;/a&gt;&lt;/li&gt;
@@ -294,10 +294,10 @@
     
     <item>
       <title>Go（七）Map</title>
-      <link>https://zerlinda123.github.io/post/go7/</link>
+      <link>https://earchou123.github.io/post/go7/</link>
       <pubDate>Thu, 09 Mar 2023 18:16:50 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go7/</guid>
+      <guid>https://earchou123.github.io/post/go7/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#map%E5%AE%9A%E4%B9%89&#34;&gt;map定义&lt;/a&gt;&lt;/li&gt;
@@ -328,10 +328,10 @@
     
     <item>
       <title>Go（六）数组&amp;切片</title>
-      <link>https://zerlinda123.github.io/post/go6/</link>
+      <link>https://earchou123.github.io/post/go6/</link>
       <pubDate>Thu, 09 Mar 2023 18:15:30 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go6/</guid>
+      <guid>https://earchou123.github.io/post/go6/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E6%95%B0%E7%BB%84&#34;&gt;数组&lt;/a&gt;
@@ -388,10 +388,10 @@
     
     <item>
       <title>Go（五）程序流程控制</title>
-      <link>https://zerlinda123.github.io/post/go5/</link>
+      <link>https://earchou123.github.io/post/go5/</link>
       <pubDate>Thu, 09 Mar 2023 18:14:37 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go5/</guid>
+      <guid>https://earchou123.github.io/post/go5/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#if&#34;&gt;if&lt;/a&gt;&lt;/li&gt;
@@ -427,10 +427,10 @@
     
     <item>
       <title>Git配置多个ssh密钥对</title>
-      <link>https://zerlinda123.github.io/post/git-ssh-config/</link>
+      <link>https://earchou123.github.io/post/git-ssh-config/</link>
       <pubDate>Wed, 08 Mar 2023 13:55:19 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/git-ssh-config/</guid>
+      <guid>https://earchou123.github.io/post/git-ssh-config/</guid>
       <description>&lt;h2 id=&#34;配置多个ssh不同域名&#34;&gt;配置多个ssh（不同域名）&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;生成两个ssh密钥对
@@ -446,10 +446,10 @@
     
     <item>
       <title>Go（四）运算符</title>
-      <link>https://zerlinda123.github.io/post/go4/</link>
+      <link>https://earchou123.github.io/post/go4/</link>
       <pubDate>Tue, 07 Mar 2023 15:31:58 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go4/</guid>
+      <guid>https://earchou123.github.io/post/go4/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6&#34;&gt;算术运算符&lt;/a&gt;&lt;/li&gt;
@@ -501,10 +501,10 @@
     
     <item>
       <title>Go（三）基础数据类型</title>
-      <link>https://zerlinda123.github.io/post/go3/</link>
+      <link>https://earchou123.github.io/post/go3/</link>
       <pubDate>Tue, 07 Mar 2023 14:31:58 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go3/</guid>
+      <guid>https://earchou123.github.io/post/go3/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%80%BB%E8%A7%88&#34;&gt;数据类型总览&lt;/a&gt;
@@ -569,10 +569,10 @@
     
     <item>
       <title>Go（二）变量&amp;常量</title>
-      <link>https://zerlinda123.github.io/post/go2/</link>
+      <link>https://earchou123.github.io/post/go2/</link>
       <pubDate>Tue, 07 Mar 2023 13:34:58 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go2/</guid>
+      <guid>https://earchou123.github.io/post/go2/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E5%8F%98%E9%87%8F&#34;&gt;变量&lt;/a&gt;
@@ -599,10 +599,10 @@
     
     <item>
       <title>English learning</title>
-      <link>https://zerlinda123.github.io/post/english-learning/</link>
+      <link>https://earchou123.github.io/post/english-learning/</link>
       <pubDate>Tue, 07 Mar 2023 13:33:20 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/english-learning/</guid>
+      <guid>https://earchou123.github.io/post/english-learning/</guid>
       <description>&lt;h2 id=&#34;音标&#34;&gt;音标&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;赖世雄美英音标&lt;/li&gt;
@@ -616,10 +616,10 @@
     
     <item>
       <title>Go学习资源合集</title>
-      <link>https://zerlinda123.github.io/post/go-learning/</link>
+      <link>https://earchou123.github.io/post/go-learning/</link>
       <pubDate>Tue, 07 Mar 2023 13:33:20 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go-learning/</guid>
+      <guid>https://earchou123.github.io/post/go-learning/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;官网&lt;br&gt;
 &lt;a href=&#34;https://golang.org&#34;&gt;https://golang.org/&lt;/a&gt;&lt;/li&gt;
@@ -632,10 +632,10 @@
     
     <item>
       <title>Go（一）特点&amp;命名</title>
-      <link>https://zerlinda123.github.io/post/go1/</link>
+      <link>https://earchou123.github.io/post/go1/</link>
       <pubDate>Tue, 07 Mar 2023 13:31:58 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/go1/</guid>
+      <guid>https://earchou123.github.io/post/go1/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#go%E8%AF%AD%E8%A8%80%E8%AF%9E%E7%94%9F&#34;&gt;go语言诞生&lt;/a&gt;&lt;/li&gt;
@@ -665,10 +665,10 @@
     
     <item>
       <title>Linux Command</title>
-      <link>https://zerlinda123.github.io/post/linux-command/</link>
+      <link>https://earchou123.github.io/post/linux-command/</link>
       <pubDate>Mon, 06 Mar 2023 14:23:00 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/linux-command/</guid>
+      <guid>https://earchou123.github.io/post/linux-command/</guid>
       <description>&lt;h2 id=&#34;bash快捷键&#34;&gt;bash快捷键&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;ctrl + a 移动到行首&lt;/li&gt;
@@ -681,10 +681,10 @@
     
     <item>
       <title>Docker Command</title>
-      <link>https://zerlinda123.github.io/post/docker-command/</link>
+      <link>https://earchou123.github.io/post/docker-command/</link>
       <pubDate>Mon, 06 Mar 2023 14:22:40 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/docker-command/</guid>
+      <guid>https://earchou123.github.io/post/docker-command/</guid>
       <description>&lt;h2 id=&#34;docker-服务相关命令&#34;&gt;docker 服务相关命令&lt;/h2&gt;
 &lt;h3 id=&#34;启动&#34;&gt;启动&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;systemctl start docker
@@ -695,20 +695,20 @@
     
     <item>
       <title>About</title>
-      <link>https://zerlinda123.github.io/about/</link>
+      <link>https://earchou123.github.io/about/</link>
       <pubDate>Mon, 06 Mar 2023 13:51:15 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/about/</guid>
+      <guid>https://earchou123.github.io/about/</guid>
       <description>&lt;h2 id=&#34;自我介绍&#34;&gt;自我介绍&lt;/h2&gt;
 &lt;p&gt;说啥好呢&amp;hellip;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Welcome</title>
-      <link>https://zerlinda123.github.io/welcome/</link>
+      <link>https://earchou123.github.io/welcome/</link>
       <pubDate>Mon, 06 Mar 2023 13:18:06 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/welcome/</guid>
+      <guid>https://earchou123.github.io/welcome/</guid>
       <description>Welcome! 欢迎你！</description>
     </item>
     

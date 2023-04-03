@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux on Zerlinda‘s blog</title>
-    <link>https://zerlinda123.github.io/tags/linux/</link>
+    <link>https://earchou123.github.io/tags/linux/</link>
     <description>Recent content in linux on Zerlinda‘s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Mar 2023 14:23:00 +0800</lastBuildDate><atom:link href="https://zerlinda123.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Mar 2023 14:23:00 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux Command</title>
-      <link>https://zerlinda123.github.io/post/linux-command/</link>
+      <link>https://earchou123.github.io/post/linux-command/</link>
       <pubDate>Mon, 06 Mar 2023 14:23:00 +0800</pubDate>
       
-      <guid>https://zerlinda123.github.io/post/linux-command/</guid>
+      <guid>https://earchou123.github.io/post/linux-command/</guid>
       <description>&lt;h2 id=&#34;bash快捷键&#34;&gt;bash快捷键&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;ctrl + a 移动到行首&lt;/li&gt;
