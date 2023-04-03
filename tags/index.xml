@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Zerlinda‘s blog</title>
-    <link>https://earchou123.github.io/tags/</link>
+    <link>https://zerlinda123.github.io/tags/</link>
     <description>Recent content in Tags on Zerlinda‘s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Mar 2023 18:30:54 +0800</lastBuildDate><atom:link href="https://earchou123.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2023 18:30:54 +0800</lastBuildDate><atom:link href="https://zerlinda123.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>golang</title>
-      <link>https://earchou123.github.io/tags/golang/</link>
+      <link>https://zerlinda123.github.io/tags/golang/</link>
       <pubDate>Thu, 09 Mar 2023 18:30:54 +0800</pubDate>
       
-      <guid>https://earchou123.github.io/tags/golang/</guid>
+      <guid>https://zerlinda123.github.io/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>git</title>
-      <link>https://earchou123.github.io/tags/git/</link>
+      <link>https://zerlinda123.github.io/tags/git/</link>
       <pubDate>Wed, 08 Mar 2023 13:55:19 +0800</pubDate>
       
-      <guid>https://earchou123.github.io/tags/git/</guid>
+      <guid>https://zerlinda123.github.io/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>English</title>
-      <link>https://earchou123.github.io/tags/english/</link>
+      <link>https://zerlinda123.github.io/tags/english/</link>
       <pubDate>Tue, 07 Mar 2023 13:33:20 +0800</pubDate>
       
-      <guid>https://earchou123.github.io/tags/english/</guid>
+      <guid>https://zerlinda123.github.io/tags/english/</guid>
       <description></description>
     </item>
     
     <item>
       <title>linux</title>
-      <link>https://earchou123.github.io/tags/linux/</link>
+      <link>https://zerlinda123.github.io/tags/linux/</link>
       <pubDate>Mon, 06 Mar 2023 14:23:00 +0800</pubDate>
       
-      <guid>https://earchou123.github.io/tags/linux/</guid>
+      <guid>https://zerlinda123.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>https://earchou123.github.io/tags/docker/</link>
+      <link>https://zerlinda123.github.io/tags/docker/</link>
       <pubDate>Mon, 06 Mar 2023 14:22:40 +0800</pubDate>
       
-      <guid>https://earchou123.github.io/tags/docker/</guid>
+      <guid>https://zerlinda123.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
